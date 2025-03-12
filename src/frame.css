@@ -1,0 +1,93 @@
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.frame > .title {
+    font-family: "GentyDemo", sans-serif;
+    color: var(--title);
+    font-size: clamp(32px, 15vw, 64px);
+    text-align: center;
+    text-shadow: 3px 3px 2px var(--secondary);
+}
+
+.frame > .content {
+    background-color: var(--primary-light);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 18px 24px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.frame > .content > .section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.frame > .content > .section > .title {
+    color: var(--title);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.frame > .content > .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 10%;
+}
+
+.frame > .content > .footer > .button {
+    background-color: var(--primary-lighter);
+    color: var(--title);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+/* SETTING */
+
+.frame.setting .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 8px;
+}
+
+.frame.setting .grid > .item {
+    background-color: var(--primary-lighter);
+    color: var(--title);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    height: 48px;
+    border: 1px transparent solid;
+    box-sizing: border-box;
+    transition: border-color .15s ease-in-out;
+}
+
+.frame.setting .grid > .item:hover,
+.frame.setting .grid > .item:focus-visible {
+    border-color: var(--secondary);
+}
+
+.frame.setting .grid > .item.selected {
+    border-color: var(--secondary);
+}

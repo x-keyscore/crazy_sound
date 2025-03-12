@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
         <link rel="stylesheet" href="./main.css">
+        <link rel="stylesheet" href="./frame.css">
 
         <title>Crazy Sound</title>
         <meta name="description" content="">
@@ -11,14 +12,54 @@
     </head>
     <body>
         <div class="container">
-            <div class="frame">
-                <div class="title">Paramètres</div>
+            <div class="frame setting">
+                <div class="title">Parametres</div>
                 <div class="content">
-                    <div class="text">Temps pour répondre</div>
-                    <div class="range">
-                        <button class="range-button" class="button"><</button>
-                        <div class="range-value" class="button">20 s</div>
-                        <button class="range-button" class="button">></button>
+                    <div class="section">
+                        <div class="title">Tu préfères quel genre ?</div>
+                        <div class="grid">
+                            <button class="item selected" aria-pressed="true">
+                                Aléatoire
+                            </button>
+                            <button class="item" aria-pressed="false">
+                                Rap
+                            </button>
+                            <button class="item" aria-pressed="false">
+                                Hip-Pop
+                            </button>
+                            <button class="item" aria-pressed="false">
+                                R&B
+                            </button>
+                            <button class="item" aria-pressed="false">
+                                Rock
+                            </button>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="title">Temps pour répondre ?</div>
+                        <div class="range">
+                            <button class="range-button" class="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z"/>
+                                </svg>
+                            </button>
+                            <div class="range-value">
+                                10s
+                            </div>
+                            <button class="range-button" class="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />   
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <button class="button">
+                            <
+                        </button>
+                        <button class="button">
+                            Commancer la partie
+                        </button>
                     </div>
                 </div>
             </div>
