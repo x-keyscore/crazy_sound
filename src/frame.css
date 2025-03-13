@@ -1,16 +1,17 @@
 .frame {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     gap: 16px;
     width: 100%;
-    max-width: 800px;
+    max-width: 450px;
     height: 100%;
+    padding: 16px 0;
     box-sizing: border-box;
 }
 
-.frame > .title {
+.frame > .frame-header > .title {
     font-family: "GentyDemo", sans-serif;
     color: var(--title);
     font-size: clamp(32px, 15vw, 64px);
@@ -18,38 +19,39 @@
     text-shadow: 3px 3px 2px var(--secondary);
 }
 
-.frame > .content {
+.frame > .frame-body {
     background-color: var(--primary-light);
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     padding: 18px 24px;
     border-radius: 12px;
     width: 100%;
-    max-width: 400px;
     box-sizing: border-box;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    user-select: all;
 }
 
-.frame > .content > .section {
+.frame > .frame-body > .section {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.frame > .content > .section > .title {
+.frame > .frame-body > .section > .title {
     color: var(--title);
     font-size: 1.1rem;
     font-weight: 600;
 }
 
-.frame > .content > .footer {
+.frame > .frame-footer {
     display: flex;
     justify-content: space-between;
     gap: 8px;
-    margin-top: 10%;
 }
 
-.frame > .content > .footer > .button {
+.frame > .frame-footer > .button {
     background-color: var(--primary-lighter);
     color: var(--title);
     font-size: 1.1rem;
@@ -90,4 +92,52 @@
 
 .frame.setting .grid > .item.selected {
     border-color: var(--secondary);
+}
+
+.frame.setting .range {
+    background-color: var(--primary-lighter);
+    color: var(--title);
+    align-self: center;
+    display: flex;
+    width: 100%;
+    max-width: 208px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+.frame.setting .range > .range-value {
+    font-size: 1.15rem;
+    color: var(--icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.frame.setting .range > .range-button {
+    flex-shrink: 0;
+    color: var(--icon);
+    font-size: 20px;
+    width: 48px;
+    border-radius: 0 8px 8px 0;
+    border: 1px transparent solid;
+    transition: color .10s ease-in-out;
+    box-sizing: border-box;
+}
+
+.frame.setting .range > .range-button > svg {
+    height: 100%;
+}
+
+.frame.setting .range > .range-button:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.frame.setting .range > .range-button:hover {
+    color: var(--icon-active);
+}
+
+.frame.setting .range > .range-button:focus-visible {
+    color: var(--icon-active);
+    border: 1px var(--secondary) solid;
 }

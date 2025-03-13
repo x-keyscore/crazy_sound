@@ -40,61 +40,12 @@ html, body {
     height: 100%;
     overflow: hidden;
     user-select: none;
-    pointer-events: none;
+    
 }
 
 .container {
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-}
-
-.range {
-    background-color: var(--primary-lighter);
-    color: var(--title);
-    align-self: center;
-    display: flex;
-    width: 100%;
-    max-width: 208px;
-    height: 38px;
-    border-radius: 8px;
-}
-
-.range > .range-value {
-    font-size: 1.15rem;
-    color: var(--icon);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.range > .range-button {
-    flex-shrink: 0;
-    color: var(--icon);
-    font-size: 20px;
-    width: 48px;
-    border-radius: 0 8px 8px 0;
-    border: 1px transparent solid;
-    transition: color .10s ease-in-out;
-    box-sizing: border-box;
-}
-
-.range > .range-button > svg {
-    height: 100%;
-}
-
-.range > .range-button:first-child {
-    border-radius: 8px 0 0 8px;
-}
-
-.range > .range-button:hover {
-    color: var(--icon-active);
-}
-
-.range > .range-button:focus-visible {
-    color: var(--icon-active);
-    border: 1px var(--secondary) solid;
 }
