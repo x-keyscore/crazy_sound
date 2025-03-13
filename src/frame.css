@@ -20,18 +20,18 @@
 }
 
 .frame > .frame-header > .title {
-    font-family: "GentyDemo", sans-serif;
     color: var(--text);
-    font-size: clamp(32px, 15vw, 64px);
+    font-family: "GentyDemo", sans-serif;
+    font-size: clamp(32px, 13vw, 48px);
     text-align: center;
-    text-shadow: 3px 3px 2px var(--secondary);
+    text-shadow: 1px 2px 0 var(--secondary);
 }
 
 .frame > .frame-body {
     background-color: var(--primary-light);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
     padding: 18px 24px;
     border-radius: 12px;
     width: 100%;
@@ -54,7 +54,12 @@
 
 .frame > .frame-footer {
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: start;
     width: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
 }
 
 .frame > .frame-footer > .content {
@@ -62,69 +67,14 @@
     justify-content: space-between;
     gap: 8px;
     width: 100%;
-    height: 38px;
+    height: 40px;
 }
 
-/* SETTING */
-
-.frame.setting .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-    gap: 8px;
-}
-
-.frame.setting .grid > .item {
-    background-color: var(--primary-light-ultra);
-    color: var(--text);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    height: 48px;
-    border: 1px transparent solid;
-    box-sizing: border-box;
-    transition: border-color .10s ease-in-out;
-}
-
-.frame.setting .grid > .item:hover,
-.frame.setting .grid > .item:focus-visible {
-    border-color: var(--secondary);
-}
-
-.frame.setting .grid > .item.selected {
-    border-color: var(--secondary);
-}
-
-.frame.setting .range {
-    background-color: var(--primary-light-ultra);
-    color: var(--text);
-    align-self: center;
-    display: flex;
-    width: 100%;
-    max-width: 208px;
-    height: 36px;
-    border-radius: 8px;
-}
-
-.frame.setting .range > .range-value {
-    font-size: 1.15rem;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.frame.setting .range > .range-button {
-    flex-shrink: 0;
-    width: 48px;
-}
-
-.frame.setting .range > .range-button:first-child {
-    border-radius: 8px 0 0 8px;
-}
-
-.frame.setting .range > .range-button:last-child {
-    border-radius: 0 8px 8px 0;
+@media (max-width: 482px) {
+    .frame > .frame-body {
+       background: none;
+    }
+    .frame > .frame-footer {
+        align-items: end;
+    }
 }

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
         <link rel="stylesheet" href="./main.css">
         <link rel="stylesheet" href="./frame.css">
+        <link rel="stylesheet" href="./frame_setting.css">
 
         <title>Crazy Sound</title>
         <meta name="description" content="">
@@ -14,14 +15,18 @@
         <div class="container">
             <div class="frame setting">
                 <div class="frame-header">
-                    <div class="title">Parametres</div>
+                    <div class="title">Nouvelle partie</div>
                 </div>
                 <div class="frame-body">
                     <div class="section">
                         <div class="title">Qui joue ?</div>
+                        <div class="player">
+                            <input class="input" type="text" placeholder="Pseudo">
+                            <input class="input" type="text" placeholder="Pseudo">
+                        </div>
                     </div>
                     <div class="section">
-                        <div class="title">Quel sont vos genres ?</div>
+                        <div class="title">Quel sont vos genres</div>
                         <div class="grid">
                             <button class="item selected" aria-pressed="true">
                                 Aléatoire
@@ -41,18 +46,18 @@
                         </div>
                     </div>
                     <div class="section">
-                        <div class="title">Temps pour répondre ?</div>
+                        <div class="title">Temps pour répondre</div>
                         <div class="range">
                             <button class="button-default range-button">
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z"/>
+                                    <path d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z" />
                                 </svg>
                             </button>
                             <div class="range-value">
                                 10s
                             </div>
                             <button class="button-default range-button">
-                                <svg viewBox="0 0 24 24">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />   
                                 </svg>
                             </button>
@@ -62,13 +67,14 @@
                 <div class="frame-footer">
                     <div class="content">
                         <button class="button-default">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z"/>
-                            </svg>
+                            <span>Retour</span>
                         </button>
-                        <button class="button-slide">
-                            <span>Commancer la partie</span>
+                        <button class="button-default">
+                            <span>Lancer la partie</span>
                         </button>
+                        <!-- <button class="button-slide">
+                            <span>Lancer la partie</span>
+                        </button> -->
                     </div>
                 </div>
                 </div>
