@@ -11,9 +11,17 @@
     box-sizing: border-box;
 }
 
+.frame > .frame-header {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .frame > .frame-header > .title {
     font-family: "GentyDemo", sans-serif;
-    color: var(--title);
+    color: var(--text);
     font-size: clamp(32px, 15vw, 64px);
     text-align: center;
     text-shadow: 3px 3px 2px var(--secondary);
@@ -29,8 +37,7 @@
     width: 100%;
     box-sizing: border-box;
     overflow-y: auto;
-    scrollbar-width: thin;
-    user-select: all;
+    scrollbar-width: none;
 }
 
 .frame > .frame-body > .section {
@@ -40,27 +47,22 @@
 }
 
 .frame > .frame-body > .section > .title {
-    color: var(--title);
+    color: var(--text);
     font-size: 1.1rem;
     font-weight: 600;
 }
 
 .frame > .frame-footer {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.frame > .frame-footer > .content {
     display: flex;
     justify-content: space-between;
     gap: 8px;
-}
-
-.frame > .frame-footer > .button {
-    background-color: var(--primary-lighter);
-    color: var(--title);
-    font-size: 1.1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 16px;
-    border-radius: 8px;
+    width: 100%;
+    height: 38px;
 }
 
 /* SETTING */
@@ -72,8 +74,8 @@
 }
 
 .frame.setting .grid > .item {
-    background-color: var(--primary-lighter);
-    color: var(--title);
+    background-color: var(--primary-light-ultra);
+    color: var(--text);
     font-weight: 400;
     display: flex;
     align-items: center;
@@ -82,7 +84,7 @@
     height: 48px;
     border: 1px transparent solid;
     box-sizing: border-box;
-    transition: border-color .15s ease-in-out;
+    transition: border-color .10s ease-in-out;
 }
 
 .frame.setting .grid > .item:hover,
@@ -95,8 +97,8 @@
 }
 
 .frame.setting .range {
-    background-color: var(--primary-lighter);
-    color: var(--title);
+    background-color: var(--primary-light-ultra);
+    color: var(--text);
     align-self: center;
     display: flex;
     width: 100%;
@@ -107,7 +109,7 @@
 
 .frame.setting .range > .range-value {
     font-size: 1.15rem;
-    color: var(--icon);
+    color: var(--text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,28 +118,13 @@
 
 .frame.setting .range > .range-button {
     flex-shrink: 0;
-    color: var(--icon);
-    font-size: 20px;
     width: 48px;
-    border-radius: 0 8px 8px 0;
-    border: 1px transparent solid;
-    transition: color .10s ease-in-out;
-    box-sizing: border-box;
-}
-
-.frame.setting .range > .range-button > svg {
-    height: 100%;
 }
 
 .frame.setting .range > .range-button:first-child {
     border-radius: 8px 0 0 8px;
 }
 
-.frame.setting .range > .range-button:hover {
-    color: var(--icon-active);
-}
-
-.frame.setting .range > .range-button:focus-visible {
-    color: var(--icon-active);
-    border: 1px var(--secondary) solid;
+.frame.setting .range > .range-button:last-child {
+    border-radius: 0 8px 8px 0;
 }
