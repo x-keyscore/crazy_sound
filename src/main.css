@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
     font-family: "GentyDemo";
-    src: url('../assets/fonts/genty/GentyDemo-Regular.ttf') format("truetype")
+    src: url('../assets/fonts/GentyDemo-Regular.ttf') format("truetype")
 }
 
 :root {
