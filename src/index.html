@@ -16,7 +16,7 @@
 
 <body>
     <div class="container">
-        <div class="frame setting" style="display: none;">
+        <div class="frame setting">
             <div class="frame-header">
                 <div class="title">Nouvelle partie</div>
             </div>
@@ -24,12 +24,12 @@
                 <div class="section">
                     <div class="title">Qui joue ?</div>
                     <div class="player">
-                        <input class="input" type="text" placeholder="Pseudo">
-                        <input class="input" type="text" placeholder="Pseudo">
+                        <input class="input" type="text" placeholder="Toi">
+                        <input class="input" type="text" placeholder="Ton adversaire ?">
                     </div>
                 </div>
                 <div class="section">
-                    <div class="title">Quel sont vos genres</div>
+                    <div class="title">Quels sont vos genres ?</div>
                     <div class="grid">
                         <button class="item selected" aria-pressed="true">
                             Aléatoire
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="section">
-                    <div class="title">Temps pour répondre</div>
+                    <div class="title">Temps par tour</div>
                     <div class="range">
                         <button class="button-default range-button">
                             <svg viewBox="0 0 24 24">
@@ -80,7 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="frame score">
+        <div class="frame score"  style="display: none;">
             <div class="frame-header">
                 <div class="title">Resultat</div>
             </div>
@@ -94,7 +94,6 @@
                     <div class="score">
                         <div class="point">100p</div>
                         <div class="pseudo">Jaque</div>
-                       
                     </div>
                 </div>
             </div>
