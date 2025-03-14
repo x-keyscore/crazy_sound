@@ -1,0 +1,53 @@
+.frame.result > .frame-body > .scores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 24px;
+}
+
+.frame.result > .frame-body > .message {
+    color: var(--text);
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+.frame.result > .frame-body > .message > .bold {
+    font-weight: 700;
+}
+
+.frame.result > .frame-body > .scores > .score {
+    flex: 0 1 125px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.frame.result > .frame-body > .scores > .score:first-child {
+    color: var(--secondary);
+    font-size: 2rem;
+}
+
+.frame.result > .frame-body > .scores > .score:last-child {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+}
+
+.frame.result > .frame-body > .scores > .score > .point {
+    flex: 1;
+    align-content: center;
+    font-family: "GentyDemo", sans-serif;
+    font-size: 1.4em;
+    line-height: 3rem;
+}
+
+.frame.result > .frame-body > .scores > .score > .pseudo {
+    font-size: 0.8em;
+    font-weight: 700;
+}

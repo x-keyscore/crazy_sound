@@ -9,10 +9,10 @@
     --primary-light: #1d222a; /*lightness +2*/
     --primary-light-extra: #262c36; /*lightness +6*/
     --primary-light-ultra: #2f3642; /*lightness +10*/
-    --primary-light-supra: #465062; /*#58677e;*/ /*lightness +30*/
+    --primary-light-supra: #465062; /*lightness +20*/
     --secondary: #ff9f1c;
-    --secondary-alpha: hsla(35, 100%, 55%, 0.9);
     --text: #ffffff;
+    --text-dark: #cccccc;
     --text-placeholder: #58677e;
 }
 

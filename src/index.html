@@ -1,84 +1,115 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
-        <link rel="stylesheet" href="./main.css">
-        <link rel="stylesheet" href="./frame.css">
-        <link rel="stylesheet" href="./frame_setting.css">
 
-        <title>Crazy Sound</title>
-        <meta name="description" content="">
-        <meta name="keyword" content="">
-    </head>
-    <body>
-        <div class="container">
-            <div class="frame setting">
-                <div class="frame-header">
-                    <div class="title">Nouvelle partie</div>
-                </div>
-                <div class="frame-body">
-                    <div class="section">
-                        <div class="title">Qui joue ?</div>
-                        <div class="player">
-                            <input class="input" type="text" placeholder="Pseudo">
-                            <input class="input" type="text" placeholder="Pseudo">
-                        </div>
-                    </div>
-                    <div class="section">
-                        <div class="title">Quel sont vos genres</div>
-                        <div class="grid">
-                            <button class="item selected" aria-pressed="true">
-                                Aléatoire
-                            </button>
-                            <button class="item" aria-pressed="false">
-                                Rap
-                            </button>
-                            <button class="item" aria-pressed="false">
-                                Hip-Pop
-                            </button>
-                            <button class="item" aria-pressed="false">
-                                R&B
-                            </button>
-                            <button class="item" aria-pressed="false">
-                                Rock
-                            </button>
-                        </div>
-                    </div>
-                    <div class="section">
-                        <div class="title">Temps pour répondre</div>
-                        <div class="range">
-                            <button class="button-default range-button">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z" />
-                                </svg>
-                            </button>
-                            <div class="range-value">
-                                10s
-                            </div>
-                            <button class="button-default range-button">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />   
-                                </svg>
-                            </button>
-                        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./frame.css">
+    <link rel="stylesheet" href="./frame_setting.css">
+    <link rel="stylesheet" href="./frame_scores.css">
+
+    <title>Crazy Sound</title>
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+</head>
+
+<body>
+    <div class="container">
+        <div class="frame setting" style="display: none;">
+            <div class="frame-header">
+                <div class="title">Nouvelle partie</div>
+            </div>
+            <div class="frame-body">
+                <div class="section">
+                    <div class="title">Qui joue ?</div>
+                    <div class="player">
+                        <input class="input" type="text" placeholder="Pseudo">
+                        <input class="input" type="text" placeholder="Pseudo">
                     </div>
                 </div>
-                <div class="frame-footer">
-                    <div class="content">
-                        <button class="button-default">
-                            <span>Retour</span>
+                <div class="section">
+                    <div class="title">Quel sont vos genres</div>
+                    <div class="grid">
+                        <button class="item selected" aria-pressed="true">
+                            Aléatoire
                         </button>
-                        <button class="button-default">
-                            <span>Lancer la partie</span>
+                        <button class="item" aria-pressed="false">
+                            Rap
                         </button>
-                        <!-- <button class="button-slide">
-                            <span>Lancer la partie</span>
-                        </button> -->
+                        <button class="item" aria-pressed="false">
+                            Hip-Pop
+                        </button>
+                        <button class="item" aria-pressed="false">
+                            R&B
+                        </button>
+                        <button class="item" aria-pressed="false">
+                            Rock
+                        </button>
                     </div>
                 </div>
+                <div class="section">
+                    <div class="title">Temps pour répondre</div>
+                    <div class="range">
+                        <button class="button-default range-button">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z" />
+                            </svg>
+                        </button>
+                        <div class="range-value">
+                            10s
+                        </div>
+                        <button class="button-default range-button">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="frame-footer">
+                <div class="content">
+                    <button class="button-default">
+                        <span>Retour</span>
+                    </button>
+                    <button class="button-default">
+                        <span>Lancer la partie</span>
+                    </button>
                 </div>
             </div>
         </div>
-    </body>
+        <div class="frame result">
+            <div class="frame-header">
+                <div class="title">Resultat</div>
+            </div>
+            <div class="frame-body">
+                <div class="message"><span class="bold">Paul</span> à gagné 🎉</div>
+                <div class="scores">
+                    <div class="score">
+                        <div class="point">120p</div>
+                        <div class="pseudo">Paul</div>
+                    </div>
+                    <div class="score">
+                        <div class="point">100p</div>
+                        <div class="pseudo">Jaque</div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="frame-footer">
+                <div class="content">
+                    <button class="button-default">
+                        <span>Menu</span>
+                    </button>
+                    <button class="button-default">
+                        <span>Nouvelle partie</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
