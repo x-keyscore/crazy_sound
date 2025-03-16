@@ -1,114 +1,252 @@
 <!DOCTYPE html>
 <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
+        <link rel="stylesheet" href="./main.css">
+        <link rel="stylesheet" href="./frame.css">
+        <link rel="stylesheet" href="./frame_config.css">
+        <link rel="stylesheet" href="./frame_scores.css">
+        <link rel="stylesheet" href="./gameplay.css">
+        <script src="./main.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
-    <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="./frame.css">
-    <link rel="stylesheet" href="./frame_setting.css">
-    <link rel="stylesheet" href="./frame_score.css">
-
-    <title>Crazy Sound</title>
-    <meta name="description" content="">
-    <meta name="keyword" content="">
-</head>
-
-<body>
-    <div class="container">
-        <div class="frame setting">
-            <div class="frame-header">
-                <div class="title">Nouvelle partie</div>
-            </div>
-            <div class="frame-body">
-                <div class="section">
-                    <div class="title">Qui joue ?</div>
-                    <div class="player">
-                        <input class="input" type="text" placeholder="Toi">
-                        <input class="input" type="text" placeholder="Ton adversaire ?">
-                    </div>
+        <title>Crazy Sound</title>
+        <meta name="description" content="">
+        <meta name="keyword" content="">
+    </head>
+    <body>
+        <div class="container">
+            <div class="frame config" id="config">
+                <div class="header">
+                    <div class="title">Nouvelle partie</div>
                 </div>
-                <div class="section">
-                    <div class="title">Quels sont vos genres ?</div>
-                    <div class="grid">
-                        <button class="item selected" aria-pressed="true">
-                            Aléatoire
-                        </button>
-                        <button class="item" aria-pressed="false">
-                            Rap
-                        </button>
-                        <button class="item" aria-pressed="false">
-                            Hip-Pop
-                        </button>
-                        <button class="item" aria-pressed="false">
-                            R&B
-                        </button>
-                        <button class="item" aria-pressed="false">
-                            Rock
-                        </button>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="title">Temps par tour</div>
-                    <div class="range">
-                        <button class="button-default range-button">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z" />
-                            </svg>
-                        </button>
-                        <div class="range-value">
-                            10s
+                <div class="body">
+                    <div class="section">
+                        <div class="title">Qui joue ?</div>
+                        <div class="player">
+                            <input class="input" type="text" placeholder="Joueur 1">
+                            <input class="input" type="text" placeholder="Joueur 2 (facultatif)">
                         </div>
-                        <button class="button-default range-button">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />
-                            </svg>
+                    </div>
+                    <div class="section">
+                        <div class="title">Quels sont vos genres ?</div>
+                        <div class="grid">
+                            <button class="item selected" aria-pressed="true">
+                                Mixtes
+                            </button>
+                            <button class="item" aria-pressed="false">
+                                Rap
+                            </button>
+                            <button class="item" aria-pressed="false">
+                                Hip-Pop
+                            </button>
+                            <button class="item" aria-pressed="false">
+                                R&B
+                            </button>
+                            <button class="item" aria-pressed="false">
+                                Rock
+                            </button>
+                        </div>
+                    </div>
+                    <div class="section flex">
+                        <div class="section">
+                            <div class="title">Temps par tour</div>
+                            <div class="range">
+                                <button class="button-default range-button">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z" />
+                                    </svg>
+                                </button>
+                                <div class="range-value">
+                                    15s
+                                </div>
+                                <button class="button-default range-button">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="title">Nombre de tours</div>
+                            <div class="range">
+                                <button class="button-default range-button">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z" />
+                                    </svg>
+                                </button>
+                                <div class="range-value">
+                                    10
+                                </div>
+                                <button class="button-default range-button">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="content">
+                        <button class="button-default" onclick="frameTransition('config', 'scores', 'slide', 'left', 500)">
+                            <span>Retour</span>
+                        </button>
+                        <button class="button-default" onclick="frameTransition('config', 'gameplay', 'fade', 'front', 250)">
+                            <span>Lancer la partie</span>
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="frame-footer">
-                <div class="content">
-                    <button class="button-default">
-                        <span>Retour</span>
-                    </button>
-                    <button class="button-default">
-                        <span>Lancer la partie</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="frame score"  style="display: none;">
-            <div class="frame-header">
-                <div class="title">Resultat</div>
-            </div>
-            <div class="frame-body">
-                <div class="message"><span class="bold">Paul</span> à gagné 🎉</div>
-                <div class="player">
-                    <div class="score">
-                        <div class="point">120p</div>
+            <div class="gameplay" id="gameplay" style="display: none;">
+                <div class="palyerbox">
+                    <div class="select">
                         <div class="pseudo">Paul</div>
+                        <button class="button-default">
+                            <svg width="28px" height="28px" viewBox="0 0 64 64">
+                                <g transform="translate(0,64) scale(0.1,-0.1)">
+                                    <path d="M115 591 c-11 -5 -31 -21 -45 -36 l-25 -27 0 -209 0 -209 33 -32 32
+                                    -33 210 0 210 0 32 33 33 32 0 210 0 210 -33 32 -32 33 -198 2 c-108 1 -206
+                                    -2 -217 -6z m335 -110 c0 -26 -19 -31 -115 -31 -92 0 -109 -9 -103 -57 4 -36
+                                    38 -53 111 -53 51 0 62 -4 88 -29 22 -23 29 -39 29 -69 0 -77 -55 -112 -177
+                                    -112 -74 0 -93 6 -93 31 0 17 8 19 83 19 96 0 131 14 135 53 5 41 -14 57 -67
+                                    57 -106 0 -161 39 -161 112 0 30 7 46 29 69 29 28 32 29 135 29 97 0 106 -2
+                                    106 -19z"/>
+                                </g>
+                            </svg>
+                            <span>bump, bump, bump</span>
+                        </button>
+                        <button class="button-default">
+                            <svg width="28px" height="28px" viewBox="0 0 64 64">
+                                <g transform="translate(0,64) scale(0.1,-0.1)">
+                                    <path d="M115 591 c-11 -5 -31 -21 -45 -36 l-25 -27 0 -209 0 -209 33 -32 32
+                                    -33 210 0 210 0 32 33 33 32 0 210 0 210 -33 32 -32 33 -198 2 c-108 1 -206
+                                    -2 -217 -6z m289 -115 c115 -67 115 -248 -1 -313 -46 -26 -147 -39 -185 -24
+                                    l-28 11 0 168 c0 93 3 172 7 175 3 4 42 7 86 7 67 0 87 -4 121 -24z"/>
+                                    <path d="M232 318 l3 -133 58 2 c95 3 147 50 147 133 0 85 -51 130 -149 130
+                                    l-62 0 3 -132z"/>
+                                </g>
+                            </svg>
+                            <span>American Boy</span>
+                        </button>
                     </div>
-                    <div class="score">
-                        <div class="point">100p</div>
-                        <div class="pseudo">Jaque</div>
+                    <div class="result" style="display: none;">
+                        <div class="point">
+                            +20
+                        </div>
+                        <div class="track">
+                            <div>
+                                <div>Titre :</div>
+                                <div name="name">American Boy</div>
+                            </div>
+                            <div>
+                                <div>Album :</div>
+                                <div name="album">Shine</div>
+                            </div>
+                            <div>
+                                <div>Artiste(s) :</div>
+                                <div name="artist">Estelle</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="centerbox">
+                    <img class="blur" src="../assets/tracks/back_in_black.jpg">
+                    <img class="picture" src="../assets/tracks/back_in_black.jpg">
+                    <div class="shadow"></div>
+                    <div class="timer">
+                        <svg class="ring" viewBox="0 0 100 100">
+                            <circle class="background" cx="50%" cy="50%" r="47.5" stroke-width="5" fill="none" />
+                            <circle class="progress" cx="50%" cy="50%" r="47.5" stroke-width="5" fill="none" />
+                        </svg>
+                        <div class="value">75</div>
+                    </div>
+                </div>
+                <div class="palyerbox">
+                    <div class="select">
+                        <div class="pseudo">Pierre</div>
+                        <button class="button-default">
+                            <svg width="28px" height="28px" viewBox="0 0 64 64">
+                                <g transform="translate(0,64) scale(0.1,-0.1)">
+                                    <path d="M115 591 c-11 -5 -31 -21 -45 -36 l-25 -27 0 -209 0 -209 33 -32 32
+                                    -33 210 0 210 0 32 33 33 32 0 210 0 210 -33 32 -32 33 -198 2 c-108 1 -206
+                                    -2 -217 -6z m135 -161 c0 -38 3 -70 8 -70 4 0 43 29 87 65 44 36 88 65 98 65
+                                    35 0 16 -37 -43 -85 -33 -26 -60 -52 -60 -57 0 -5 27 -45 60 -90 62 -85 74
+                                    -118 42 -118 -12 0 -43 33 -84 90 l-65 90 -21 -21 c-19 -17 -22 -31 -22 -89 0
+                                    -63 -2 -70 -20 -70 -19 0 -20 7 -20 180 0 173 1 180 20 180 18 0 20 -7 20 -70z"/>
+                                </g>
+                            </svg>
+                            <span>bump, bump, bump</span>
+                        </button>
+                        <button class="button-default">
+                            <svg width="28px" height="28px" viewBox="0 0 64 64">
+                                <g transform="translate(0,64) scale(0.1,-0.1)">
+                                    <path d="M115 591 c-11 -5 -31 -21 -45 -36 l-25 -27 0 -209 0 -209 33 -32 32
+                                    -33 210 0 210 0 32 33 33 32 0 210 0 210 -33 32 -32 33 -198 2 c-108 1 -206
+                                    -2 -217 -6z m137 -248 l3 -158 103 -3 c92 -2 102 -5 102 -21 0 -10 -7 -22 -16
+                                    -25 -25 -10 -180 -7 -208 4 l-26 10 0 175 c0 168 1 175 20 175 18 0 20 -8 22
+                                    -157z"/>
+                                </g>
+                            </svg>
+                            <span>American Boy</span>
+                        </button>
+                    </div>
+                    <div class="result" style="display: none;">
+                        <div class="point">
+                            +20
+                        </div>
+                        <div class="track">
+                            <div>
+                                <div>Titre :</div>
+                                <div name="name">American Boy</div>
+                            </div>
+                            <div>
+                                <div>Album :</div>
+                                <div name="album">Shine</div>
+                            </div>
+                            <div>
+                                <div>Artiste(s) :</div>
+                                <div name="artist">Estelle</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="frame-footer">
-                <div class="content">
-                    <button class="button-default">
-                        <span>Menu</span>
-                    </button>
-                    <button class="button-default">
-                        <span>Nouvelle partie</span>
-                    </button>
+            <div class="frame scores" id="scores" style="display: none;">
+                <div class="header">
+                    <div class="title">Resultat</div>
                 </div>
+                <div class="body">
+                    <div class="message">Et le gagnant est… <span class="bold">Paul</span> 🎉</div>
+                    <div class="player">
+                        <div class="score">
+                            <div class="point">120</div>
+                            <div class="pseudo">Paul</div>
+                        </div>
+                        <div class="score">
+                            <div class="point">100</div>
+                            <div class="pseudo">Jaque</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="content">
+                        <button class="button-default">
+                            <span>Menu</span>
+                        </button>
+                        <button class="button-default" onclick="frameTransition('scores', 'config', 'slide', 'left', 500)">
+                            <span>Nouvelle partie</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mascot">
+                <img src="../assets/icons/mascot_2.svg">
             </div>
         </div>
-    </div>
-</body>
-
+    </body>
 </html>

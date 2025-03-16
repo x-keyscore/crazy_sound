@@ -1,4 +1,4 @@
-.frame.score > .frame-body > .message {
+.frame.scores > .body > .message {
     color: var(--text);
     font-size: 1.4rem;
     font-weight: 500;
@@ -7,18 +7,18 @@
     margin-bottom: 16px;
 }
 
-.frame.score > .frame-body > .message > .bold {
+.frame.scores > .body > .message > .bold {
     font-weight: 700;
 }
 
-.frame.score > .frame-body > .player {
+.frame.scores > .body > .player {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 24px;
+    gap:  24px 0; 
 }
 
-.frame.score > .frame-body > .player > .score {
+.frame.scores > .body > .player > .score {
     flex: 0 1 125px;
     color: var(--text);
     display: flex;
@@ -29,25 +29,24 @@
     padding: 8px;
 }
 
-.frame.score > .frame-body > .player > .score:first-child {
+.frame.scores > .body > .player > .score:first-child {
     color: var(--secondary);
     font-size: 2rem;
 }
 
-.frame.score > .frame-body > .player > .score:last-child {
-    color: var(--text-dark);
+.frame.scores > .body > .player > .score:last-child {
+    color: var(--text-darken);
     font-size: 1.5rem;
 }
 
-.frame.score > .frame-body > .player > .score > .point {
+.frame.scores > .body > .player > .score > .point {
     flex: 1;
     align-content: center;
-    font-family: "GentyDemo", sans-serif;
     font-size: 1.4em;
     line-height: 3rem;
 }
 
-.frame.score > .frame-body > .player > .score > .pseudo {
+.frame.scores > .body > .player > .score > .pseudo {
     font-size: 0.8em;
     font-weight: 700;
 }

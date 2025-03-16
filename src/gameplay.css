@@ -1,0 +1,206 @@
+.gameplay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.gameplay > .centerbox {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 255px;
+    height: initial;
+    max-height: 255px;
+    aspect-ratio: 1;
+    clip-path: inset(1px 1px 1px 1px round 50%);
+}
+
+.gameplay > .centerbox > .blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+}
+
+.gameplay > .centerbox > .picture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc((100% * 0.707) - 16px);
+    transform: translate(-50%, -50%);
+}
+
+.gameplay > .centerbox > .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 50px 0px #191d24;
+}
+
+.gameplay > .centerbox > .timer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 0.35s keyframe-timer-opacity 10s ease-in-out forwards;
+}
+
+.gameplay > .centerbox > .timer > .ring {
+    transform: rotate(-90deg);
+}
+
+.gameplay > .centerbox > .timer > .ring > .background {
+    fill: var(--primary-light);
+    stroke: var(--primary);
+}
+
+.gameplay > .centerbox > .timer > .ring > .progress {
+    stroke: var(--secondary);
+    stroke-dasharray: 298.4; /* perimeter = 2 * pi * r */
+    stroke-dashoffset: 298.4;
+    animation: keyframe-timer-rotate 10s linear forwards;
+}
+
+.gameplay > .centerbox > .timer > .value {
+    position: absolute;
+    color: var(--text);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+
+.gameplay > .palyerbox {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameplay > .palyerbox > .select {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 240px;
+}
+
+.gameplay > .palyerbox > .select > .pseudo {
+    font-family: "GentyDemo", sans-serif;
+    text-shadow: 1px 2px 0 var(--secondary);
+    color: var(--text);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.gameplay > .palyerbox > .select > button {
+    gap: 10px;
+    width: 100%;
+    padding: 10px 16px;
+}
+
+.gameplay > .palyerbox > .select > button > span {
+    text-align: start;
+}
+
+.gameplay > .palyerbox > .result {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.gameplay > .palyerbox > .result > .point {
+    color: var(--text);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.gameplay > .palyerbox > .result > .track {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gameplay > .palyerbox > .result > .track > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.gameplay > .palyerbox > .result > .track > div > div:nth-child(1) {
+    color: var(--secondary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.gameplay > .palyerbox > .result > .track > div > div:nth-child(2) {
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .gameplay {
+        flex-direction: column;
+    }
+    .gameplay > .centerbox {
+        width: initial;
+        height: 100%;
+    }
+    .gameplay > .centerbox > .content {
+        animation: 5s keyframe-centerbox-rotate 10s linear;
+    }
+    .gameplay:has(> div:nth-child(3)) > .palyerbox:first-child {
+        transform: rotateZ(180deg);
+    } 
+}
+
+@media (any-pointer: coarse) {
+    .gameplay > .palyerbox > .select > button > svg {
+        display: none;
+    }
+}
+
+@keyframes keyframe-centerbox-rotate {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes keyframe-timer-rotate {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: 298.4;
+    }
+}
+
+@keyframes keyframe-timer-opacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

@@ -2,7 +2,7 @@
     {
         "name": "string",
         "album": "string",
-        "artiste": [
+        "artist": [
             "string"
         ],
         "category": [
@@ -16,7 +16,7 @@
     {
         "name": "bump, bump, bump",
         "album": "Pandemonium!",
-        "artiste": [
+        "artist": [
             "B2K",
             "Diddy"
         ],
@@ -32,7 +32,7 @@
     {
         "name": "American Boy",
         "album": "Shine",
-        "artiste": [
+        "artist": [
             "Estelle"
         ],
         "category": [
@@ -46,7 +46,7 @@
     {
         "name": "À fleur de toi",
         "album": "À fleur de toi",
-        "artiste": [
+        "artist": [
             "Vitaa"
         ],
         "category": [
@@ -60,7 +60,7 @@
     {
         "name": "Thong Song",
         "album": "Unleash the Dragon",
-        "artiste": [
+        "artist": [
             "Sisqó"
         ],
         "category": [
@@ -75,7 +75,7 @@
     {
         "name": "Umbrella",
         "album": "Good Girl Gone Bad",
-        "artiste": [
+        "artist": [
             "Rihanna"
         ],
         "category": [
@@ -92,7 +92,7 @@
     {
         "name": "Back in Black",
         "album": null,
-        "artiste": [
+        "artist": [
             "AC/DC"
         ],
         "category": [
@@ -107,7 +107,7 @@
     {
         "name": "Bohemian Rhapsody",
         "album": "A Night at the Opera",
-        "artiste": [
+        "artist": [
             "Queen"
         ],
         "category": [
@@ -122,7 +122,7 @@
     {
         "name": "Hey Jude",
         "album": null,
-        "artiste": [
+        "artist": [
             "The Beatles"
         ],
         "category": [
@@ -137,7 +137,7 @@
     {
         "name": "Highway to Hell",
         "album": null,
-        "artiste": [
+        "artist": [
             "AC/DC"
         ],
         "category": [
@@ -153,7 +153,7 @@
     {
         "name": "Purple Haze",
         "album": "Are You Experienced",
-        "artiste": [
+        "artist": [
             "Jimi Hendrix"
         ],
         "category": [
@@ -169,7 +169,7 @@
     {
         "name": "Johnny B. Goode",
         "album": null,
-        "artiste": [
+        "artist": [
             "Chuck Berry"
         ],
         "category": [
@@ -184,7 +184,7 @@
     {
         "name": "Nevermind",
         "album": null,
-        "artiste": [
+        "artist": [
             "Nirvana"
         ],
         "category": [
@@ -200,7 +200,7 @@
     {
         "name": "Comme Des Enfants",
         "album": "Coeur de pirate",
-        "artiste": [
+        "artist": [
             "Coeur de pirate"
         ],
         "category": [
@@ -214,7 +214,7 @@
     {
         "name": "Every Breath You Take",
         "album": null,
-        "artiste": [
+        "artist": [
             "The Police"
         ],
         "category": [
@@ -228,7 +228,7 @@
     {
         "name": "I Wanna Dance With Somebody",
         "album": "Whitney",
-        "artiste": [
+        "artist": [
             "Whitney Houston"
         ],
         "category": [
@@ -243,7 +243,7 @@
     {
         "name": "Imagine",
         "album": null,
-        "artiste": [
+        "artist": [
             "John Lennon"
         ],
         "category": [
@@ -259,7 +259,7 @@
     {
         "name": "Elle me dit",
         "album": "The Origin Of Love",
-        "artiste": [
+        "artist": [
             "Mika"
         ],
         "category": [
@@ -277,7 +277,7 @@
     {
         "name": "Get Low",
         "album": "Kings of Crunk",
-        "artiste": [
+        "artist": [
             "Lil Jon & the East Side"
         ],
         "category": [
@@ -291,7 +291,7 @@
     {
         "name": "Je danse le Mia",
         "album": "Ombre est lumière",
-        "artiste": [
+        "artist": [
             "IAM"
         ],
         "category": [
@@ -305,7 +305,7 @@
     {
         "name": "Notes pour trop tard",
         "album": "La Fête est finie",
-        "artiste": [
+        "artist": [
             "Orelsan"
         ],
         "category": [
@@ -319,7 +319,7 @@
     {
         "name": "On verra",
         "album": "Feu",
-        "artiste": [
+        "artist": [
             "Nekfeu"
         ],
         "category": [

@@ -1,11 +1,30 @@
-.frame.setting .player {
+.frame.config > .body .section {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px 8px;
+}
+
+.frame.config > .body .section.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.frame.config > .body .section > .title {
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.frame.config > .body .section > .player {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 8px;
 }
 
-.frame.setting .player > .input {
+.frame.config > .body .section > .player > .input {
     flex: 1 1 125px;
     background-color: var(--primary-light-extra);
 	color: var(--text);
@@ -18,25 +37,25 @@
 	border: 1px solid var(--primary-light-ultra);
 }
 
-.frame.setting .player > .input::placeholder {
+.frame.config > .body .section > .player > .input::placeholder {
     color: var(--text-placeholder)
 }
 
-.frame.setting .player > .input:hover {
+.frame.config > .body .section > .player > .input:hover {
     border-color: var(--primary-light-supra);
 }
 
-.frame.setting .player > .input:focus {
+.frame.config > .body .section > .player > .input:focus {
     border-color: var(--secondary);
 }
 
-.frame.setting .grid {
+.frame.config > .body .section > .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
     gap: 8px;
 }
 
-.frame.setting .grid > .item {
+.frame.config > .body .section > .grid > .item {
     background-color: var(--primary-light-extra);
     color: var(--text);
     font-weight: 500;
@@ -50,16 +69,16 @@
     transition: border-color .10s ease-in-out;
 }
 
-.frame.setting .grid > .item:hover,
-.frame.setting .grid > .item:focus-visible {
+.frame.config > .body .section > .grid > .item:hover,
+.frame.config > .body .section > .grid > .item:focus-visible {
     border-color: var(--primary-light-supra);
 }
 
-.frame.setting .grid > .item.selected {
+.frame.config > .body .section > .grid > .item.selected {
     border-color: var(--secondary);
 }
 
-.frame.setting .range {
+.frame.config > .body .section > .range {
     background-color: var(--primary-light-extra);
     color: var(--text);
     align-self: center;
@@ -70,27 +89,27 @@
     border-radius: 8px;
 }
 
-.frame.setting .range > .range-value {
+.frame.config > .body .section > .range > .range-value {
     font-size: 1.1rem;
     color: var(--text);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 0 10px;
     border-color: var(--primary-light-ultra);
     border-style: solid;
     border-width: 0 1px;
 }
 
-.frame.setting .range > .range-button {
-    flex-shrink: 0;
+.frame.config > .body .section > .range > .range-button {
     width: 48px;
 }
 
-.frame.setting .range > .range-button:first-child {
+.frame.config > .body .section > .range > .range-button:first-child {
     border-radius: 8px 0 0 8px;
 }
 
-.frame.setting .range > .range-button:last-child {
+.frame.config > .body .section > .range > .range-button:last-child {
     border-radius: 0 8px 8px 0;
 }
