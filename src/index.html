@@ -3,12 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
-        <link rel="stylesheet" href="./main.css">
-        <link rel="stylesheet" href="./frame.css">
-        <link rel="stylesheet" href="./frame_config.css">
-        <link rel="stylesheet" href="./frame_scores.css">
-        <link rel="stylesheet" href="./gameplay.css">
-        <script src="./main.js"></script>
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/frame.css">
+        <!-- <link rel="stylesheet" href="./css/frame_config.css"> -->
+        <link rel="stylesheet" href="./css/frame_config_edit.css">
+        <link rel="stylesheet" href="./css/frame_scores.css">
+        <link rel="stylesheet" href="./css/gameplay.css">
+        <script src="./js/main.js"  type="module"></script>
 
         <title>Crazy Sound</title>
         <meta name="description" content="">
@@ -16,52 +17,53 @@
     </head>
     <body>
         <div class="container">
-            <div class="frame config" id="config">
+            <div class="frame config" id="config" style="display: none;">
                 <div class="header">
                     <div class="title">Nouvelle partie</div>
                 </div>
                 <div class="body">
+            
                     <div class="section">
-                        <div class="title">Qui joue ?</div>
-                        <div class="player">
-                            <input class="input" type="text" placeholder="Joueur 1">
-                            <input class="input" type="text" placeholder="Joueur 2 (facultatif)">
+                        <div class="title" id="player_title">Qui joue ?</div>
+                        <div class="section row" id="player_input" role="group" aria-labelledby="player-title">
+                            <input class="input" name="input_player_1" type="text" placeholder="Joueur 1">
+                            <input class="input" name="input_player_2" type="text" placeholder="Joueur 2 (facultatif)">
                         </div>
                     </div>
                     <div class="section">
-                        <div class="title">Quels sont vos genres ?</div>
-                        <div class="grid">
-                            <button class="item selected" aria-pressed="true">
+                        <div class="title" id="genre_title">Quels sont vos genres ?</div>
+                        <div class="grid" id="genre_select" role="group" aria-labelledby="genre-title">
+                            <button class="item selected" data-genre="random" aria-pressed="true">
                                 Mixtes
                             </button>
-                            <button class="item" aria-pressed="false">
+                            <button class="item" data-genre="rap" aria-pressed="false">
                                 Rap
                             </button>
-                            <button class="item" aria-pressed="false">
+                            <button class="item" data-genre="hippop" aria-pressed="false">
                                 Hip-Pop
                             </button>
-                            <button class="item" aria-pressed="false">
+                            <button class="item" data-genre="rnb" aria-pressed="false">
                                 R&B
                             </button>
-                            <button class="item" aria-pressed="false">
+                            <button class="item" data-genre="rock" aria-pressed="false">
                                 Rock
                             </button>
                         </div>
                     </div>
-                    <div class="section flex">
+                    <div class="section row">
                         <div class="section">
                             <div class="title">Temps par tour</div>
-                            <div class="range">
-                                <button class="button-default range-button">
+                            <div class="range" id="range_turn_time">
+                                <button class="button-default range-button" name="less">
                                     <svg viewBox="0 0 24 24">
                                         <path
                                             d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z" />
                                     </svg>
                                 </button>
-                                <div class="range-value">
+                                <div class="range-value" name="value">
                                     15s
                                 </div>
-                                <button class="button-default range-button">
+                                <button class="button-default range-button" name="more">
                                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />
@@ -71,8 +73,8 @@
                         </div>
                         <div class="section">
                             <div class="title">Nombre de tours</div>
-                            <div class="range">
-                                <button class="button-default range-button">
+                            <div class="range" id="range_turn_count">
+                                <button class="button-default range-button" name="less">
                                     <svg viewBox="0 0 24 24">
                                         <path
                                             d="M14 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L11.414 12l3.293 3.293A1 1 0 0 1 14 17z" />
@@ -81,7 +83,7 @@
                                 <div class="range-value">
                                     10
                                 </div>
-                                <button class="button-default range-button">
+                                <button class="button-default range-button" name="more">
                                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M14.707,12.707l-4,4a1,1,0,0,1-1.414-1.414L12.586,12,9.293,8.707a1,1,0,1,1,1.414-1.414l4,4A1,1,0,0,1,14.707,12.707Z" />
@@ -216,7 +218,7 @@
                     </div>
                 </div>
             </div>
-            <div class="frame scores" id="scores" style="display: none;">
+            <div class="frame scores" id="scores" >
                 <div class="header">
                     <div class="title">Resultat</div>
                 </div>
@@ -245,7 +247,7 @@
                 </div>
             </div>
             <div class="mascot">
-                <img src="../assets/icons/mascot_2.svg">
+                <img src="../../assets/icons/mascot_2.svg">
             </div>
         </div>
     </body>

@@ -32,13 +32,12 @@
     background-color: var(--primary-light);
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    padding: 18px 24px;
-    border-radius: 12px;
+    gap: 16px;
     width: 100%;
+    padding: 18px 24px;
+    clip-path: inset(0 0 0 0 round 12px);
     box-sizing: border-box;
-    overflow-y: auto;
-    scrollbar-width: none;
+    overflow: auto;
 }
 
 .frame > .footer {
@@ -65,8 +64,6 @@
 @media (max-width: 482px) {
     .frame > .body {
        background: none;
-       padding-top: 0;
-       padding-bottom: 0;
     }
     .frame > .footer {
         align-items: end;

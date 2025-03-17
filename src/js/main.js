@@ -1,11 +1,14 @@
-const vars = {
-    frames: {
-        "config": {
+import "./frame_config.js";
 
-        },
-        "gameplay": {
-
-        }
+let vars = {
+    config: {
+        players: [""],
+        genres: ["random"],
+        turnCount: 10,
+        turnTime: 15000
+    },
+    gameplay: {
+        
     }
 }
 
@@ -17,7 +20,6 @@ const vars = {
  * @param {number} time ms
  */
 function frameTransition(idFrom, idTo, mode, type, time) {
-    console.log("test");
     const frameFrom = document.getElementById(idFrom);
     const frameTo = document.getElementById(idTo);
 
@@ -100,3 +102,6 @@ function frameTransition(idFrom, idTo, mode, type, time) {
         throw new Error(`The mode '${mode}' is unknown`);
     }
 }
+globalThis.frameTransition = frameTransition;
+
+export { vars };
