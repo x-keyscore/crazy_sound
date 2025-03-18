@@ -1,19 +1,5 @@
 [
     {
-        "name": "string",
-        "album": "string",
-        "artist": [
-            "string"
-        ],
-        "category": [
-            "string"
-        ],
-        "file": {
-            "track": "string",
-            "cover": "string"
-        }
-    },
-    {
         "name": "bump, bump, bump",
         "album": "Pandemonium!",
         "artist": [

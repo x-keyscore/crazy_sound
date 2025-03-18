@@ -70,7 +70,7 @@
     border-color: var(--primary-light-supra);
 }
 
-.frame.config > .body .section > .grid > .item.selected {
+.frame.config > .body .section > .grid > .item[aria-pressed="true"] {
     border-color: var(--secondary);
 }
 

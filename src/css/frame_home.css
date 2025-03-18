@@ -1,88 +1,26 @@
-/*
-.frame.home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-    position: relative;
-}*/
-
-.frame > .header img.logo {
-    max-width: 195px; /* Test = Augmentation de 30% */
-    height: auto;
-    /*margin-bottom: 16px;*/
+.frame.home > .header > .logo {
+    max-width: clamp(32px, 50vw, 195px);
 }
 
-h1, h2, p {
-    color: var(--text);
-    margin: 0;
+.frame.home > .body {
+    text-align: center;
 }
 
 h1 {
+    color: var(--text);
     font-size: 2.2rem;
     font-weight: bold;
     line-height: 1.5;
-    color: var(--text);
 }
 
 h2 {
-    font-size: 30px;
-    font-weight: normal;
+    color: var(--text);
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 p {
-    font-size: 20px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .frame > .header img.logo {
-        max-width: 150px; /* Test augmentation de 30% */
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 10px 16px;
-    }
-
-    .mascotte {
-        max-width: 30%;
-        bottom: 5px;
-       /*right: 5px; */
-       animation: moveMascotte 1s ease-out forwards;
-    }
-}
-
-@media (max-width: 480px) {
-    .frame.home {
-        max-width: 90%;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    h2 {
-        font-size: 16px;
-    }
-
-    button {
-        font-size: 12px;
-        padding: 8px 14px;
-    }
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 400;
 }

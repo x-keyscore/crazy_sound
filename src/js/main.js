@@ -1,14 +1,30 @@
-import "./frame_config.js";
+//import "./frame_config.js";
+import frameConfig from "./frame_config.js";
+import frameGameplay from "./frame_gameplay.js";
 
 let vars = {
-    config: {
-        players: [""],
-        genres: ["random"],
+    data: {
+        players: {
+            1: {
+                pseudo: "",
+                score: 0
+            },
+            2: {
+                pseudo: "",
+                score: 0
+            }
+        },
+        genres: new Set(["random"]),
         turnCount: 10,
         turnTime: 15000
     },
-    gameplay: {
-        
+    frames: {
+        config: {
+            setup: frameConfig.setup
+        },
+        gameplay: {
+            setup: frameGameplay.setup
+        }
     }
 }
 
@@ -22,6 +38,9 @@ let vars = {
 function frameTransition(idFrom, idTo, mode, type, time) {
     const frameFrom = document.getElementById(idFrom);
     const frameTo = document.getElementById(idTo);
+
+    // Exec frame setup function
+    if (vars.frames[idTo]) vars.frames[idTo].setup();
 
     if (mode === "fade") {
         if (type === "front") {

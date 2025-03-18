@@ -20,6 +20,10 @@ a, button, div, label, select, span, strong {
     outline: none;
 }
 
+h1, h2, p {
+    margin: 0;
+}
+
 button {
     all: unset;
     cursor: pointer;

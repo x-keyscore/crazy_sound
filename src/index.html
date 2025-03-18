@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="frame home">
+            <div class="frame home" id="home">
                 <div class="header">
                     <img src="/assets/icons/logo.svg" alt="Logo" class="logo">
                 </div>
@@ -27,11 +27,12 @@
                     <h2>Ta mission ? </h2>
                     <p>Identifier l'extrait de musique le plus rapidement possible !</p>
                     <h2>Es-tu prêt ?</h2>
-                    
                 </div>
                 <div class="footer">
                     <div class="content">
-                        <button class="button-default">C'est parti ! 🏁</button>
+                        <button class="button-default" onclick="frameTransition('home', 'config', 'slide', 'left', 500)">
+                            <span>C'est parti ! 🏁</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -42,15 +43,15 @@
                 <div class="body">
                     <div class="section">
                         <div class="title" id="player_title">Qui joue ?</div>
-                        <div class="section row" id="player_input" role="group" aria-labelledby="player-title">
-                            <input class="input" name="input_player_1" type="text" placeholder="Joueur 1">
-                            <input class="input" name="input_player_2" type="text" placeholder="Joueur 2 (facultatif)">
+                        <div class="section row" id="input_player" role="group" aria-labelledby="player-title">
+                            <input class="input" name="player_1" type="text" maxlength="12" placeholder="Joueur 1">
+                            <input class="input" name="player_2" type="text" maxlength="12" placeholder="Joueur 2 (facultatif)">
                         </div>
                     </div>
                     <div class="section">
                         <div class="title" id="genre_title">Quels sont vos genres ?</div>
-                        <div class="grid" id="genre_select" role="group" aria-labelledby="genre-title">
-                            <button class="item selected" data-genre="random" aria-pressed="true">
+                        <div class="grid" id="select_genre" role="group" aria-labelledby="genre-title">
+                            <button class="item" data-genre="random" aria-pressed="false">
                                 Mixtes
                             </button>
                             <button class="item" data-genre="rap" aria-pressed="false">
@@ -112,7 +113,7 @@
                 </div>
                 <div class="footer">
                     <div class="content">
-                        <button class="button-default" onclick="frameTransition('config', 'scores', 'slide', 'left', 500)">
+                        <button class="button-default" onclick="frameTransition('config', 'home', 'slide', 'right', 500)">
                             <span>Retour</span>
                         </button>
                         <button class="button-default" onclick="frameTransition('config', 'gameplay', 'fade', 'front', 250)">
@@ -173,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="centerbox">
+                <div class="centerbox" id="button_action">
                     <img class="blur" src="../assets/tracks/back_in_black.jpg">
                     <img class="picture" src="../assets/tracks/back_in_black.jpg">
                     <div class="shadow"></div>
