@@ -38,6 +38,8 @@
     clip-path: inset(0 0 0 0 round 12px);
     box-sizing: border-box;
     overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-light-extra) var(--primary-light);
 }
 
 .frame > .footer {
@@ -52,9 +54,13 @@
 
 .frame > .footer > .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 8px;
     width: 100%;
+}
+
+.frame > .footer > .content:has(> :nth-child(2)) {
+    justify-content: space-between;
 }
 
 .frame > .footer > .content > button {
