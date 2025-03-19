@@ -15,10 +15,16 @@ function setup() {
 
 }
 
-
-
-function ready() {
-    let audio = new Audio();
+async function ready() {
+    const audioContext = new AudioContext();
+    
+    try {
+        const response = await fetch("viper.mp3");
+        
+        buffer = await audioCtx.decodeAudioData(await response.arrayBuffer());
+    } catch (err) {
+    console.error(`Unable to fetch the audio file. Error: ${err.message}`);
+    }
     audio.volume = 1;
     let playedtracks = 0;
     let fadeDuration = 750;
@@ -49,7 +55,7 @@ function ready() {
         }, fadeDuration);
     }
 
-    async function play() {
+    function play() {
         playedtracks++;
         if (!audio.paused) {
             //audio.pause();
@@ -61,8 +67,6 @@ function ready() {
              audio.src = "../../assets/tracks/" + tracks[playedtracks].file.track;
             await audio.play();
         },  fadeDuration);
-
-       
     }
 
     const buttonStart = document.getElementById('button_action');
@@ -70,14 +74,10 @@ function ready() {
         if (audio.paused) {
             play();
             setInterval(() => play(), vars.data.turnTime);
-            buttonStart.textContent = '⏸️ Pause';
         } else {
             audio.pause();
-            buttonStart.textContent = '▶️ Play';
         }
     });
 }
-
-
 
 export default { setup };
