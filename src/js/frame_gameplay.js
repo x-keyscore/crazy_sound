@@ -16,6 +16,7 @@ function setup() {
 }
 
 async function ready() {
+    /*
     const audioContext = new AudioContext();
     
     try {
@@ -77,7 +78,7 @@ async function ready() {
         } else {
             audio.pause();
         }
-    });
+    });*/
 }
 
 export default { setup };

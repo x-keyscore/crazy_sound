@@ -116,7 +116,7 @@
                         <button class="button-default" onclick="frameTransition('config', 'home', 'slide', 'right', 500)">
                             <span>Retour</span>
                         </button>
-                        <button class="button-default" onclick="frameTransition('config', 'gameplay', 'fade', 'front', 250)">
+                        <button class="button-default" onclick="frameTransition('config', 'scores', 'fade', 'front', 250)">
                             <span>Lancer la partie</span>
                         </button>
                     </div>
@@ -255,7 +255,7 @@
                 </div>
                 <div class="footer">
                     <div class="content">
-                        <button class="button-default">
+                        <button class="button-default" onclick="frameTransition('scores', 'home', 'slide', 'right', 500)">
                             <span>Menu</span>
                         </button>
                         <button class="button-default" onclick="frameTransition('scores', 'config', 'slide', 'left', 500)">
@@ -265,8 +265,10 @@
                 </div>
             </div>
             <div class="mascot">
-                <img src="../../assets/icons/mascot_2.svg">
+                <img src="../../assets/icons/mascot.svg">
             </div>
+            <canvas id="confetti"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
         </div>
     </body>
 </html>

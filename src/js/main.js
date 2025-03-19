@@ -1,6 +1,7 @@
 //import "./frame_config.js";
-import frameConfig from "./frame_config.js";
+import  frameConfig from "./frame_config.js";
 import frameGameplay from "./frame_gameplay.js";
+import frameScores from "./frame_scores.js";
 
 let vars = {
     data: {
@@ -24,6 +25,9 @@ let vars = {
         },
         gameplay: {
             setup: frameGameplay.setup
+        },
+        scores: {
+            setup: frameScores.setup
         }
     }
 }
@@ -40,7 +44,8 @@ function frameTransition(idFrom, idTo, mode, type, time) {
     const frameTo = document.getElementById(idTo);
 
     // Exec frame setup function
-    if (vars.frames[idTo]) vars.frames[idTo].setup();
+    let callbackSetup = null;
+    if (vars.frames[idTo]) callbackSetup = vars.frames[idTo].setup();
 
     if (mode === "fade") {
         if (type === "front") {
@@ -58,6 +63,8 @@ function frameTransition(idFrom, idTo, mode, type, time) {
         frameTo.style.removeProperty('display');
 
         setTimeout(() => {
+            if (callbackSetup) callbackSetup();
+
             frameFrom.style.display = "none";
             frameFrom.style.removeProperty('animation');
             frameTo.style.removeProperty('animation');
@@ -111,6 +118,7 @@ function frameTransition(idFrom, idTo, mode, type, time) {
         frameTo.style.removeProperty('display');
 
         setTimeout(() => {
+            if (callbackSetup) callbackSetup();
             document.head.removeChild(styleSheet);
 
             frameFrom.style.display = "none";
