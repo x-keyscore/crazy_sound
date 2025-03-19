@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/frame.css">
-        <link rel="stylesheet" href="./css/frame_home.css">
+        <link rel="stylesheet" href="./css/frame_menu.css">
         <link rel="stylesheet" href="./css/frame_config.css">
         <link rel="stylesheet" href="./css/frame_scores.css">
         <link rel="stylesheet" href="./css/gameplay.css">
@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="frame home" id="home">
+            <div class="frame menu" id="menu">
                 <div class="header">
                     <img src="/assets/icons/logo.svg" alt="Logo" class="logo">
                 </div>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="footer">
                     <div class="content">
-                        <button class="button-default" onclick="frameTransition('home', 'config', 'slide', 'left', 500)">
+                        <button class="button-default" onclick="frameTransition('menu', 'config', 'slide', 'left', 500)">
                             <span>C'est parti ! 🏁</span>
                         </button>
                     </div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="footer">
                     <div class="content">
-                        <button class="button-default" onclick="frameTransition('config', 'home', 'slide', 'right', 500)">
+                        <button class="button-default" onclick="frameTransition('config', 'menu', 'slide', 'right', 500)">
                             <span>Retour</span>
                         </button>
                         <button class="button-default" onclick="frameTransition('config', 'scores', 'fade', 'front', 250)">
@@ -255,7 +255,7 @@
                 </div>
                 <div class="footer">
                     <div class="content">
-                        <button class="button-default" onclick="frameTransition('scores', 'home', 'slide', 'right', 500)">
+                        <button class="button-default" onclick="frameTransition('scores', 'menu', 'slide', 'right', 500)">
                             <span>Menu</span>
                         </button>
                         <button class="button-default" onclick="frameTransition('scores', 'config', 'slide', 'left', 500)">

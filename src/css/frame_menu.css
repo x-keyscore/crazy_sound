@@ -1,8 +1,8 @@
-.frame.home > .header > .logo {
+.frame.menu > .header > .logo {
     max-width: clamp(32px, 50vw, 195px);
 }
 
-.frame.home > .body {
+.frame.menu > .body {
     text-align: center;
 }
 
