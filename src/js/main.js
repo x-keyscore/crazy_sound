@@ -2,21 +2,37 @@ import frameConfig from "./frame_config.js";
 import frameGameplay from "./frame_gameplay.js";
 import frameScores from "./frame_scores.js";
 
-let vars = {
+const vars = {
     data: {
+        playersCount: 1,
         players: {
             1: {
                 pseudo: "",
-                score: 0
+                score: 0,
+                isReady: false
             },
             2: {
                 pseudo: "",
-                score: 0
+                score: 0,
+                isReady: false
             }
         },
         genres: new Set(["random"]),
-        turnCount: 10,
-        turnTime: 15000
+        round: {
+            totalCount: 7,
+            finishCount: 0,
+            tracks: [],
+            current: {
+                titleInvalidate: "",
+                titleValidate: "",
+                scores: {
+                    1: 0,
+                    2: 0
+                }
+            },
+            time: 15
+        },
+        tracks: []
     },
     frames: {
         config: {
@@ -32,7 +48,6 @@ let vars = {
 }
 
 /**
- * 
  * @param {HTMLElement} frameFrom 
  * @param {HTMLElement} frameTo 
  * @param {"left" | "right"} type 
@@ -94,7 +109,6 @@ function slideAnimation(frameFrom, frameTo, type, time) {
 }
 
 /**
- * 
  * @param {HTMLElement} frameFrom 
  * @param {HTMLElement} frameTo 
  * @param {"front" | "back"} type 

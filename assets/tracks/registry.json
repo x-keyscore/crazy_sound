@@ -1,12 +1,12 @@
 [
     {
-        "name": "bump, bump, bump",
+        "title": "bump, bump, bump",
         "album": "Pandemonium!",
         "artist": [
             "B2K",
             "Diddy"
         ],
-        "category": [
+        "genres": [
             "rnb",
             "hip-pop"
         ],
@@ -16,12 +16,12 @@
         }
     },
     {
-        "name": "American Boy",
+        "title": "American Boy",
         "album": "Shine",
         "artist": [
             "Estelle"
         ],
-        "category": [
+        "genres": [
             "rnb"
         ],
         "file": {
@@ -30,12 +30,12 @@
         }
     },
     {
-        "name": "À fleur de toi",
+        "title": "À fleur de toi",
         "album": "À fleur de toi",
         "artist": [
             "Vitaa"
         ],
-        "category": [
+        "genres": [
             "rnb"
         ],
         "file": {
@@ -44,14 +44,13 @@
         }
     },
     {
-        "name": "Thong Song",
+        "title": "Thong Song",
         "album": "Unleash the Dragon",
         "artist": [
             "Sisqó"
         ],
-        "category": [
-            "rnb",
-            "soul"
+        "genres": [
+            "rnb"
         ],
         "file": {
             "track": "thong_song.mp3",
@@ -59,14 +58,13 @@
         }
     },
     {
-        "name": "Umbrella",
+        "title": "Umbrella",
         "album": "Good Girl Gone Bad",
         "artist": [
             "Rihanna"
         ],
-        "category": [
+        "genres": [
             "rnb",
-            "soul",
             "pop",
             "hip-pop"
         ],
@@ -76,14 +74,13 @@
         }
     },
     {
-        "name": "Back in Black",
+        "title": "Back in Black",
         "album": null,
         "artist": [
             "AC/DC"
         ],
-        "category": [
-            "rock",
-            "hard-rock"
+        "genres": [
+            "rock"
         ],
         "file": {
             "track": "back_in_black.mp3",
@@ -91,14 +88,13 @@
         }
     },
     {
-        "name": "Bohemian Rhapsody",
+        "title": "Bohemian Rhapsody",
         "album": "A Night at the Opera",
         "artist": [
             "Queen"
         ],
-        "category": [
-            "rock",
-            "hard-rock"
+        "genres": [
+            "rock"
         ],
         "file": {
             "track": "bohemian_rhapsody.mp3",
@@ -106,14 +102,13 @@
         }
     },
     {
-        "name": "Hey Jude",
+        "title": "Hey Jude",
         "album": null,
         "artist": [
             "The Beatles"
         ],
-        "category": [
-            "rock",
-            "pop-rock"
+        "genres": [
+            "rock"
         ],
         "file": {
             "track": "hey_jude.mp3",
@@ -121,15 +116,13 @@
         }
     },
     {
-        "name": "Highway to Hell",
+        "title": "Highway to Hell",
         "album": null,
         "artist": [
             "AC/DC"
         ],
-        "category": [
-            "rock",
-            "hard-rock",
-            "blues-rock"
+        "genres": [
+            "rock"
         ],
         "file": {
             "track": "highway_to_hell.mp3",
@@ -137,15 +130,13 @@
         }
     },
     {
-        "name": "Purple Haze",
+        "title": "Purple Haze",
         "album": "Are You Experienced",
         "artist": [
             "Jimi Hendrix"
         ],
-        "category": [
-            "rock",
-            "psychedelic-rock",
-            "proto-metal"
+        "genres": [
+            "rock"
         ],
         "file": {
             "track": "purple_haze.mp3",
@@ -153,14 +144,13 @@
         }
     },
     {
-        "name": "Johnny B. Goode",
+        "title": "Johnny B. Goode",
         "album": null,
         "artist": [
             "Chuck Berry"
         ],
-        "category": [
-            "rock",
-            "rock-n-roll"
+        "genres": [
+            "rock"
         ],
         "file": {
             "track": "johnny_B_goode.mp3",
@@ -168,15 +158,13 @@
         }
     },
     {
-        "name": "Nevermind",
+        "title": "Nevermind",
         "album": null,
         "artist": [
             "Nirvana"
         ],
-        "category": [
-            "rock",
-            "grunge",
-            "alternative-rock"
+        "genres": [
+            "rock"
         ],
         "file": {
             "track": "nevermind.mp3",
@@ -184,12 +172,12 @@
         }
     },
     {
-        "name": "Comme Des Enfants",
+        "title": "Comme Des Enfants",
         "album": "Coeur de pirate",
         "artist": [
             "Coeur de pirate"
         ],
-        "category": [
+        "genres": [
             "pop"
         ],
         "file": {
@@ -198,12 +186,12 @@
         }
     },
     {
-        "name": "Every Breath You Take",
+        "title": "Every Breath You Take",
         "album": null,
         "artist": [
             "The Police"
         ],
-        "category": [
+        "genres": [
             "rock"
         ],
         "file": {
@@ -212,14 +200,13 @@
         }
     },
     {
-        "name": "I Wanna Dance With Somebody",
+        "title": "I Wanna Dance With Somebody",
         "album": "Whitney",
         "artist": [
             "Whitney Houston"
         ],
-        "category": [
-            "pop",
-            "dance-pop"
+        "genres": [
+            "pop"
         ],
         "file": {
             "track": "i_wanna_dance_with_somebody.mp3",
@@ -227,14 +214,13 @@
         }
     },
     {
-        "name": "Imagine",
+        "title": "Imagine",
         "album": null,
         "artist": [
             "John Lennon"
         ],
-        "category": [
+        "genres": [
             "pop",
-            "soft-rock",
             "rock"
         ],
         "file": {
@@ -243,17 +229,13 @@
         }
     },
     {
-        "name": "Elle me dit",
+        "title": "Elle me dit",
         "album": "The Origin Of Love",
         "artist": [
             "Mika"
         ],
-        "category": [
-            "pop",
-            "power-pop",
-            "dance-pop",
-            "electropop",
-            "synthpop"
+        "genres": [
+            "pop"
         ],
         "file": {
             "track": "elle_me_dit.mp3",
@@ -261,13 +243,13 @@
         }
     },
     {
-        "name": "Get Low",
+        "title": "Get Low",
         "album": "Kings of Crunk",
         "artist": [
             "Lil Jon & the East Side"
         ],
-        "category": [
-            "hip-pop", "southern", "hip-hopdirty", "rapcrunk"
+        "genres": [
+            "hip-pop"
         ],
         "file": {
             "track": "elle_me_dit.mp3",
@@ -275,13 +257,13 @@
         }
     },
     {
-        "name": "Je danse le Mia",
+        "title": "Je danse le Mia",
         "album": "Ombre est lumière",
         "artist": [
             "IAM"
         ],
-        "category": [
-            "hip-hop", "funk"
+        "genres": [
+            "hip-hop"
         ],
         "file": {
             "track": "je_danse_le_mia.mp3",
@@ -289,13 +271,13 @@
         }
     },
     {
-        "name": "Notes pour trop tard",
+        "title": "Notes pour trop tard",
         "album": "La Fête est finie",
         "artist": [
             "Orelsan"
         ],
-        "category": [
-            "hip-hop", "electropop", "pop-rap"
+        "genres": [
+            "hip-hop"
         ],
         "file": {
             "track": "notes_pour_trop_tard.mp3",
@@ -303,12 +285,12 @@
         }
     },
     {
-        "name": "On verra",
+        "title": "On verra",
         "album": "Feu",
         "artist": [
             "Nekfeu"
         ],
-        "category": [
+        "genres": [
             "hip-hop", "rap"
         ],
         "file": {

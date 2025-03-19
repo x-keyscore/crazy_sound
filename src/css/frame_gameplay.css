@@ -74,25 +74,27 @@
 .gameplay > .centerbox > .timer > .ring > .progress {
     stroke: var(--secondary);
     stroke-dasharray: 298.4; /* perimeter = 2 * pi * r */
-    stroke-dashoffset: 298.4;
+    stroke-dashoffset: 0;
     animation: keyframe-timer-rotate 10s linear forwards;
 }
 
 .gameplay > .centerbox > .timer > .value {
     position: absolute;
+    width: 80%;
     color: var(--text);
     font-size: 1.8rem;
     font-weight: 700;
+    text-align: center;
 }
 
-.gameplay > .palyerbox {
+.gameplay > .playerbox {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.gameplay > .palyerbox > .select {
+.gameplay > .playerbox > .select {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -100,7 +102,7 @@
     max-width: 240px;
 }
 
-.gameplay > .palyerbox > .select > .pseudo {
+.gameplay > .playerbox > .select > .pseudo {
     font-family: "GentyDemo", sans-serif;
     text-shadow: 1px 2px 0 var(--secondary);
     color: var(--text);
@@ -109,47 +111,47 @@
     margin-bottom: 8px;
 }
 
-.gameplay > .palyerbox > .select > button {
+.gameplay > .playerbox > .select > button {
     gap: 10px;
     width: 100%;
     padding: 10px 16px;
 }
 
-.gameplay > .palyerbox > .select > button > span {
+.gameplay > .playerbox > .select > button > span {
     text-align: start;
 }
 
-.gameplay > .palyerbox > .result {
+.gameplay > .playerbox > .result {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
-.gameplay > .palyerbox > .result > .point {
+.gameplay > .playerbox > .result > .point {
     color: var(--text);
     font-size: 2rem;
     font-weight: 600;
 }
 
-.gameplay > .palyerbox > .result > .track {
+.gameplay > .playerbox > .result > .track {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.gameplay > .palyerbox > .result > .track > div {
+.gameplay > .playerbox > .result > .track > div {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.gameplay > .palyerbox > .result > .track > div > div:nth-child(1) {
+.gameplay > .playerbox > .result > .track > div > div:nth-child(1) {
     color: var(--secondary);
     font-size: 1rem;
     font-weight: 600;
 }
 
-.gameplay > .palyerbox > .result > .track > div > div:nth-child(2) {
+.gameplay > .playerbox > .result > .track > div > div:nth-child(2) {
     color: var(--text);
     font-size: 1rem;
     font-weight: 500;
@@ -166,13 +168,13 @@
     .gameplay > .centerbox > .content {
         animation: 5s keyframe-centerbox-rotate 10s linear;
     }
-    .gameplay:has(> div:nth-child(3)) > .palyerbox:first-child {
+    .gameplay:has(> div:nth-child(3)) > .playerbox:first-child {
         transform: rotateZ(180deg);
     } 
 }
 
 @media (any-pointer: coarse) {
-    .gameplay > .palyerbox > .select > button > svg {
+    .gameplay > .playerbox > .select > button > svg {
         display: none;
     }
 }
@@ -185,7 +187,7 @@
         transform: rotateZ(360deg);
     }
 }
-
+/*
 @keyframes keyframe-timer-rotate {
     from {
         stroke-dashoffset: 0;
@@ -193,8 +195,8 @@
     to {
         stroke-dashoffset: 298.4;
     }
-}
-
+}*/
+/*
 @keyframes keyframe-timer-opacity {
     from {
         opacity: 1;
@@ -202,4 +204,4 @@
     to {
         opacity: 0;
     }
-}
+}*/
