@@ -7,15 +7,13 @@ const vars = {
         players: {
             1: {
                 pseudo: "",
-                totalScore: 0,
-                isReady: false
+                totalScore: 0
             },
             2: {
                 pseudo: "",
-                totalScore: 0,
-                isReady: false
+                totalScore: 0
             },
-            totalPlayers: 1,
+            totalPlayers: 1
         },
         genres: new Set(["random"]),
         rounds: {
@@ -24,58 +22,24 @@ const vars = {
         },
     },
     ingame: {
-        tracks: [],
+        availableTracks: [],
         round: {
-            validTrackPosition: 0,
-            validTrack: null,
-            invalidTrack: null,
+            validateTrackPosition: 0,
+            validateTrack: null,
+            invalidateTrack: null,
             players: {
                 1: {
+                    isReady: false,
                     score: 0
                 },
                 2: {
+                    isReady: false,
                     score: 0
                 }
             }
         }
     },
-    data: {
-        playersCount: 1,
-        players: {
-            1: {
-                pseudo: "",
-                score: 0,
-                isReady: false
-            },
-            2: {
-                pseudo: "",
-                score: 0,
-                isReady: false
-            }
-        },
-        genres: new Set(["random"]),
-        round: {
-            totalCount: 7,
-            finishCount: 0,
-            tracks: [],
-            current: {
-                titleValidate: "",
-                // 0 = select_1, 1 = select_2
-                titleValidatePosition: 0,
-                titleInvalidate: "",
-                player: {
-                    1: {
-                        score: 0
-                    },
-                    2: {
-                        score: 0 
-                    }
-                }
-            },
-            time: 15
-        },
-        tracks: []
-    },
+    tracks: [],
     frames: {
         "menu": {
             allowTransition: null,

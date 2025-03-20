@@ -22,7 +22,7 @@ fetch('../../assets/tracks/registry.json')
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        vars.data.tracks = data;
+        vars.tracks = data;
     })
     .catch(error => console.error('Unable to retrieve tracks registry :', error));
 
@@ -46,77 +46,78 @@ async function loadMP3(url) {
 }
 
 function setup() {
-    if (!vars.data.tracks.length) throw new Error("Tracks is not initialized");
+    if (!vars.tracks.length) throw new Error("Tracks is not initialized");
 
     // SETUP TIMER
-    timerValue.textContent = String(vars.data.round.time) + "s";
+    timerValue.textContent = String(vars.params.rounds.timeRounds) + "s";
 
     // SETUP SCORES
-    vars.data.players[1].score = 0;
-    vars.data.players[2].score = 0;
+    vars.ingame.round.players[1].score = 0;
+    vars.ingame.round.players[2].score = 0;
 
     // SETUP PLAYER READY
-    vars.data.players[1].isReady = false;
-    vars.data.players[2].isReady = false;
+    vars.ingame.round.players[1].isReady = false;
+    vars.ingame.round.players[2].isReady = false;
 
     // SETUP PLAYERBOX
     playerbox_1.style.removeProperty("display");
-    if (vars.data.playersCount === 2) {
+    if (vars.params.players.totalPlayers === 2) {
         playerbox_2.style.removeProperty("display");
     }
 
     // SETUP PLAYERBOX READYBOX
     playerbox_1_readybox.style.removeProperty("display");
-    if (vars.data.playersCount === 2) {
+    if (vars.params.players.totalPlayers === 2) {
         playerbox_2_readybox.style.removeProperty("display");
     }
 
     // SETUP PLAYERBOX PSEUDO
-    playerbox_1_readybox.querySelector("[name='pseudo']").textContent = vars.data.players[1].pseudo;
-    playerbox_1_selectbox.querySelector("[name='pseudo']").textContent = vars.data.players[1].pseudo;
-    if (vars.data.playersCount === 2) {
-        playerbox_2_readybox.querySelector("[name='pseudo']").textContent = vars.data.players[2].pseudo;
-        playerbox_2_selectbox.querySelector("[name='pseudo']").textContent = vars.data.players[2].pseudo;
+    setPlayerBoxPseudo(1, vars.params.players[1].pseudo);
+    if (vars.params.players.totalPlayers === 2) {
+        setPlayerBoxPseudo(2, vars.params.players[2].pseudo);
     }
 
-    // SETUP DATA ROUND
-    vars.data.round.roundFinish = 0;
-    if (vars.data.genres.has("random")) {
-        vars.data.round.tracks = vars.data.tracks;
+    // SETUP ROUND GENRES
+    if (vars.params.genres.has("random")) {
+        vars.ingame.availableTracks = vars.tracks;
     } else {
-        vars.data.round.tracks = vars.data.tracks.filter((track) => {
-            return (track.genres.some(genre => vars.data.genres.has(genre)));
+        vars.ingame.availableTracks = vars.tracks.filter((track) => {
+            return (track.genres.some(genre => vars.params.genres.has(genre)));
         });
     }
 }
 
 function gameloop() {
+    const round = vars.ingame.round;
+
     // RETRIVE VALIDATE TRACK
-    const roundTracks = vars.data.round.tracks;
-    const validateTrackIndex = Math.floor(Math.random() * roundTracks.length);
-    const validateTrack = roundTracks[validateTrackIndex];
+    const availableTracks = vars.ingame.availableTracks;
+    const validateTrackIndex = Math.floor(Math.random() * availableTracks.length);
+    const validateTrack = availableTracks[validateTrackIndex];
 
     // RETRIVE INVALIDATE TRACK
-    const proposableTracks = vars.data.tracks.filter((track) => {
+    const similarTracks = vars.tracks.filter((track) => {
         return (track.title !== validateTrack.title
             && track.genres.some(genre => validateTrack.genres.includes(genre)));
     });
-    const invalidateTrackIndex = Math.floor(Math.random() * proposableTracks.length);
-    const invalidateTrack = proposableTracks[invalidateTrackIndex];
+    const invalidateTrackIndex = Math.floor(Math.random() * similarTracks.length);
+    const invalidateTrack = similarTracks[invalidateTrackIndex];
 
-    // STORAGE TITLE TRACK
-    vars.data.round.current.titleValidate = validateTrack.title;
-    vars.data.round.current.titleInvalidate = invalidateTrack.title;
+    // STORAGE ROUND TRACK
+    round.validateTrack = validateTrack;
+    round.invalidateTrack = invalidateTrack;
 
-    console.log(vars.data.round.current);
+    console.log(round);
 
     // SET SELECTABLE TITLE
     const validatePosition = Math.floor(Math.random() * 2);
-    vars.data.round.current.titleValidatePosition = validatePosition;
+    round.validateTrackPosition = validatePosition;
     if (validatePosition === 0) {
-        setPlayerSelectValue(vars.data.round.current.titleValidate, vars.data.round.current.titleInvalidate);
+        setPlayerBoxSelectValue(1, round.validateTrack.title, round.invalidateTrack.title);
+        setPlayerBoxSelectValue(2, round.validateTrack.title, round.invalidateTrack.title);
     } else {
-        setPlayerSelectValue(vars.data.round.current.titleInvalidate, vars.data.round.current.titleValidate);
+        setPlayerBoxSelectValue(1, round.invalidateTrack.title, round.validateTrack.title);
+        setPlayerBoxSelectValue(2, round.invalidateTrack.title, round.validateTrack.title);
     }
 
     loadMP3("../../assets/tracks/" + validateTrack.file.track);
@@ -128,21 +129,23 @@ function gameloop() {
  * @param {1 | 2} playerIndex 
  * @param {HTMLElement} buttonTarget
  */
-function playerReady(playerIndex, buttonTarget) {
-    if (vars.data.players[playerIndex].isReady) return ;
-    vars.data.players[playerIndex].isReady = true;
-    buttonTarget.style.opacity = "0.7";
-    buttonTarget.style.pointerEvents = "none";
+function playerReady(playerIndex) {
+    const round = vars.ingame.round;
+
+    if (round.players[playerIndex].isReady) return ;
+
+    round.players[playerIndex].isReady = true;
+    setPlayerBoxReadyButton(playerIndex, "disable");
 
     // CHECK ALL READY
-    const dataPlayers = vars.data.players;
-    if (vars.data.playersCount === 2 && (!dataPlayers[1].isReady || !dataPlayers[2].isReady)) return ;
+    if (vars.params.players.totalPlayers === 2 &&
+        (!round.players[1].isReady || !round.players[2].isReady)) return ;
 
     playerbox_1_readybox.style.display = "none";
     playerbox_2_readybox.style.display = "none";
 
     playerbox_1_selectbox.style.removeProperty("display");
-    if (vars.data.playersCount === 2) {
+    if (vars.params.players.totalPlayers === 2) {
         playerbox_2_selectbox.style.removeProperty("display");
     }
 
@@ -153,51 +156,89 @@ function playerReady(playerIndex, buttonTarget) {
 playerbox_1_readybox.addEventListener("click", (e) => {
     const buttonTarget = e.target.closest("button");
     if (!buttonTarget) return;
-    if (vars.data.players[1].isReady) return ;
 
-    playerReady(1, buttonTarget);
+    playerReady(1);
 })
 
 playerbox_2_readybox.addEventListener("click", (e) => {
     const buttonTarget = e.target.closest("button");
     if (!buttonTarget) return;
-    if (vars.data.players[2].isReady) return ;
 
-    playerReady(2, buttonTarget);
+    playerReady(2);
 })
 
 // PLAYER MANAGEMENT SELECT
 
-function setPlayerSelectValue(selectValue_1, selectValue_2) {
-    const playerbox_1_selectbox_1_span = playerbox_1_selectbox_1.querySelector("span");
-    const playerbox_1_selectbox_2_span = playerbox_1_selectbox_2.querySelector("span");
-    const playerbox_2_selectbox_1_span = playerbox_2_selectbox_1.querySelector("span");
-    const playerbox_2_selectbox_2_span = playerbox_2_selectbox_2.querySelector("span");
+function setPlayerBoxPseudo(playerIndex, pseudo) {
+    if (playerIndex === 1) {
+        const playerbox_1_readybox_pseudo = playerbox_1_readybox.querySelector("[name='pseudo']");
+        const playerbox_1_selectbox_pseudo = playerbox_1_selectbox.querySelector("[name='pseudo']");
 
-    playerbox_1_selectbox_1_span.textContent = selectValue_1;
-    playerbox_1_selectbox_2_span.textContent = selectValue_2;
-    playerbox_2_selectbox_1_span.textContent = selectValue_1;
-    playerbox_2_selectbox_2_span.textContent = selectValue_2;
+        playerbox_1_readybox_pseudo.textContent = pseudo;
+        playerbox_1_selectbox_pseudo.textContent = pseudo;
+    } else if (playerIndex === 2) {
+        const playerbox_2_readybox_pseudo = playerbox_2_readybox.querySelector("[name='pseudo']");
+        const playerbox_2_selectbox_pseudo = playerbox_2_selectbox.querySelector("[name='pseudo']");
+
+        playerbox_2_readybox_pseudo.textContent = pseudo;
+        playerbox_2_selectbox_pseudo.textContent = pseudo;
+    }
+}
+
+/**
+ * @param {1 | 2} playerIndex 
+ * @param {"enable" | "disable"} state
+ */
+function setPlayerBoxReadyButton(playerIndex, state) {
+    const playerbox_1_readybox_button = playerbox_1_readybox.querySelector("[name='ready']");
+    const playerbox_2_readybox_button = playerbox_2_readybox.querySelector("[name='ready']");
+   
+    const buttonTarget = playerIndex === 1 ? playerbox_1_readybox_button : playerbox_2_readybox_button;
+    if (state === 1) {
+        buttonTarget.style.opacity = "1";
+        buttonTarget.style.removeProperty("pointer-events");
+    } else if (state === 2) {
+        buttonTarget.style.opacity = "0.7";
+        buttonTarget.style.pointerEvents = "none";
+    }
+}
+
+function setPlayerBoxSelectValue(playerIndex, value_1, value_2) {
+    if (playerIndex === 1) {
+        const playerbox_1_selectbox_1_span = playerbox_1_selectbox_1.querySelector("span");
+        const playerbox_1_selectbox_2_span = playerbox_1_selectbox_2.querySelector("span");
+
+        playerbox_1_selectbox_1_span.textContent = value_1;
+        playerbox_1_selectbox_2_span.textContent = value_2;
+    } else if (playerIndex === 2) {
+        const playerbox_2_selectbox_1_span = playerbox_2_selectbox_1.querySelector("span");
+        const playerbox_2_selectbox_2_span = playerbox_2_selectbox_2.querySelector("span");
+
+        playerbox_2_selectbox_1_span.textContent = value_1;
+        playerbox_2_selectbox_2_span.textContent = value_2;
+    }
 }
 
 /**
  * @param {1 | 2} playerIndex
- * @param {0 | 1} selectPosition 
+ * @param {"select_1" | "select_2"} selectPosition 
  */
 function playerSelect(playerIndex, selectPosition) {
-    
+
 }
 
 playerbox_1_selectbox.addEventListener("click", (e) => {
     const buttonTarget = e.target.closest("button");
     if (!buttonTarget) return;
-    
+
+    playerSelect(1, buttonTarget.name);
 })
 
 playerbox_2_selectbox.addEventListener("click", (e) => {
     const buttonTarget = e.target.closest("button");
     if (!buttonTarget) return;
     
+    playerSelect(2, buttonTarget.name);
 })
 
 // PLAYER MANAGEMENT KEYS

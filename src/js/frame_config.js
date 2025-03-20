@@ -87,13 +87,13 @@ rangeRoundCount.addEventListener("click", (e) => {
 
     const rounds = vars.params.rounds;
     if (buttonTarget.name === "less") {
-        if (rounds.totalCount > 3) rounds.totalCount -= 2;
+        if (rounds.totalRounds > 3) rounds.totalRounds -= 2;
     }
     else if (buttonTarget.name === "more") {
-        if (rounds.totalCount < 7) rounds.totalCount += 2;
+        if (rounds.totalRounds < 7) rounds.totalRounds += 2;
     }
 
-    valueElement.textContent = String(rounds.totalCount);
+    valueElement.textContent = String(rounds.totalRounds);
 })
 
 /*
