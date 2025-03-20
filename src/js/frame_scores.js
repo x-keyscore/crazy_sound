@@ -1,12 +1,16 @@
 const jsConfetti = new JSConfetti();
 
+function launchConfetti() {
+    jsConfetti.addConfetti({
+        emojis: ['🐸', '🎵', '✨', '✨', '🎉'],
+        emojiSize: 30,
+        confettiNumber: 150
+    });
+}
+
 function setup() {
     return (() => {
-        jsConfetti.addConfetti({
-            emojis: ['🐸', '🎵', '✨', '✨', '🎉'],
-            emojiSize: 30,
-            confettiNumber: 150
-        });
+        launchConfetti();
     })
 }
 

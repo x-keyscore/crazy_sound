@@ -69,15 +69,34 @@ rangeRoundTime.addEventListener("click", (e) => {
     const buttonTarget = e.target.closest("button");
     if (!buttonTarget) return;
 
+    const round = vars.data.round;
     if (buttonTarget.name === "less") {
-        if (vars.data.round.time > 10) vars.data.round.time -= 5;
-    } else if (buttonTarget.name === "more") {
-        if (vars.data.round.time < 60) vars.data.round.time += 5;
+        if (round.time > 10) round.time -= 5;
+    }
+    else if (buttonTarget.name === "more") {
+        if (round.time < 60) round.time += 5;
     }
 
-    valueElement.textContent = String(vars.data.round.time) + "s";
+    valueElement.textContent = String(round.time) + "s";
 })
 
+rangeRoundCount.addEventListener("click", (e) => {
+    const valueElement = rangeRoundCount.querySelector("[name='value']");
+    const buttonTarget = e.target.closest("button");
+    if (!buttonTarget) return;
+
+    const round = vars.data.round;
+    if (buttonTarget.name === "less") {
+        if (round.totalCount > 3) round.totalCount -= 2;
+    }
+    else if (buttonTarget.name === "more") {
+        if (round.totalCount < 7) round.totalCount += 2;
+    }
+
+    valueElement.textContent = String(round.totalCount);
+})
+
+/*
 const lessButton = rangeRoundCount.querySelector("[name='less']");
 const moreButton = rangeRoundCount.querySelector("[name='more']");
 const rangeValue = rangeRoundCount.querySelector("[name='value']");
@@ -90,7 +109,6 @@ lessButton.addEventListener("click", function () {
 moreButton.addEventListener("click", function () {
     if (vars.data.round.totalCount < 7) vars.data.round.totalCount += 2;
     rangeValue.textContent = String(vars.data.round.totalCount);
-});
-
+});*/
 
 export default { setup };

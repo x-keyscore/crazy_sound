@@ -23,11 +23,17 @@ const vars = {
             finishCount: 0,
             tracks: [],
             current: {
-                titleInvalidate: "",
                 titleValidate: "",
-                scores: {
-                    1: 0,
-                    2: 0
+                // 1 = Top, 2 = Botton
+                titleValidatePosition: 1,
+                titleInvalidate: "",
+                player: {
+                    1: {
+                        score: 0
+                    },
+                    2: {
+                        score: 0 
+                    },
                 }
             },
             time: 15
@@ -35,14 +41,21 @@ const vars = {
         tracks: []
     },
     frames: {
-        config: {
-            setup: frameConfig.setup
+        "menu": {
+            allowTransition: null,
+            setupDisplay: null
         },
-        gameplay: {
-            setup: frameGameplay.setup
+        "config": {
+            allowTransition: null,
+            setupDisplay: frameConfig.setup
         },
-        scores: {
-            setup: frameScores.setup
+        "gameplay": {
+            allowTransition: null,
+            setupDisplay: frameGameplay.setup
+        },
+        "scores": {
+            allowTransition: null,
+            setupDisplay: frameScores.setup
         }
     }
 }
@@ -149,6 +162,12 @@ function frameTransition(idFrom, idTo, mode, type, time) {
     const frameFrom = document.getElementById(idFrom);
     const frameTo = document.getElementById(idTo);
 
+    // EXEC FUNCTION ALLOW TRANSITION
+    if (vars.frames[idTo]?.allowTransition) {
+        if (!vars.frames[idTo].allowTransition()) return ;
+    }
+
+    // EXEC ANIMATION
     let callbackAnimation = null;
     if (mode === "fade") {
         callbackAnimation = fadeAnimation(frameFrom, frameTo, type, time);
@@ -158,14 +177,16 @@ function frameTransition(idFrom, idTo, mode, type, time) {
         throw new Error(`The mode '${mode}' is unknown`);
     }
 
-    let callbackSetup = null;
-    if (vars.frames[idTo]?.setup) {
-        callbackSetup = vars.frames[idTo].setup();
+    // EXEC FUNCTION SETUP DISPLAY
+    let callbackSetupDisplay = null;
+    if (vars.frames[idTo]?.setupDisplay) {
+        callbackSetupDisplay = vars.frames[idTo].setupDisplay();
     }
 
+    // CLEAR ANIMATION AND EXEC SETUP DISPLAY CALLBACK
     setTimeout(() => {
         callbackAnimation();
-        if (callbackSetup) callbackSetup();
+        if (callbackSetupDisplay) callbackSetupDisplay();
     }, time);
 }
 globalThis.frameTransition = frameTransition;
