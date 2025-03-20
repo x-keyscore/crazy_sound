@@ -1,5 +1,7 @@
 import { vars } from "./main.js";
 
+const timerRing = document.getElementById("timer_ring");
+const timerValue = document.getElementById("timer_value");
 const playerbox_1 = document.getElementById("playerbox_1");
 const playerbox_2 = document.getElementById("playerbox_2");
 const playerbox_1_readybox = document.getElementById("playerbox_1_readybox");
@@ -42,9 +44,6 @@ async function loadMP3(url) {
         console.error('MP3 fetch error :', error);
     }
 }
-
-const timerValue = document.getElementById("timer_value");
-const timerRing = document.getElementById("timer_ring");
 
 function setup() {
     if (!vars.data.tracks.length) throw new Error("Tracks is not initialized");
@@ -97,7 +96,7 @@ function gameloop() {
     const validateTrackIndex = Math.floor(Math.random() * roundTracks.length);
     const validateTrack = roundTracks[validateTrackIndex];
 
-     // RETRIVE INVALIDATE TRACK
+    // RETRIVE INVALIDATE TRACK
     const proposableTracks = vars.data.tracks.filter((track) => {
         return (track.title !== validateTrack.title
             && track.genres.some(genre => validateTrack.genres.includes(genre)));
@@ -105,6 +104,7 @@ function gameloop() {
     const invalidateTrackIndex = Math.floor(Math.random() * proposableTracks.length);
     const invalidateTrack = proposableTracks[invalidateTrackIndex];
 
+    // STORAGE TITLE TRACK
     vars.data.round.current.titleValidate = validateTrack.title;
     vars.data.round.current.titleInvalidate = invalidateTrack.title;
 
@@ -112,20 +112,11 @@ function gameloop() {
 
     // SET SELECTABLE TITLE
     const validatePosition = Math.floor(Math.random() * 2);
-    const playerbox_1_selectbox_1_span = playerbox_1_selectbox_1.querySelector("span");
-    const playerbox_1_selectbox_2_span = playerbox_1_selectbox_2.querySelector("span");
-    const playerbox_2_selectbox_1_span = playerbox_2_selectbox_1.querySelector("span");
-    const playerbox_2_selectbox_2_span = playerbox_2_selectbox_2.querySelector("span");
+    vars.data.round.current.titleValidatePosition = validatePosition;
     if (validatePosition === 0) {
-        playerbox_1_selectbox_1_span.textContent = vars.data.round.current.titleValidate;
-        playerbox_1_selectbox_2_span.textContent = vars.data.round.current.titleInvalidate;
-        playerbox_2_selectbox_1_span.textContent = vars.data.round.current.titleValidate;
-        playerbox_2_selectbox_2_span.textContent = vars.data.round.current.titleInvalidate;
+        setPlayerSelectValue(vars.data.round.current.titleValidate, vars.data.round.current.titleInvalidate);
     } else {
-        playerbox_1_selectbox_1_psan.textContent = vars.data.round.current.titleInvalidate;
-        playerbox_1_selectbox_2_span.textContent = vars.data.round.current.titleValidate;
-        playerbox_2_selectbox_1_span.textContent = vars.data.round.current.titleInvalidate;
-        playerbox_2_selectbox_2_span.textContent = vars.data.round.current.titleValidate;
+        setPlayerSelectValue(vars.data.round.current.titleInvalidate, vars.data.round.current.titleValidate);
     }
 
     loadMP3("../../assets/tracks/" + validateTrack.file.track);
@@ -133,6 +124,10 @@ function gameloop() {
 
 // PLAYER MANAGEMENT READY
 
+/**
+ * @param {1 | 2} playerIndex 
+ * @param {HTMLElement} buttonTarget
+ */
 function playerReady(playerIndex, buttonTarget) {
     if (vars.data.players[playerIndex].isReady) return ;
     vars.data.players[playerIndex].isReady = true;
@@ -140,9 +135,8 @@ function playerReady(playerIndex, buttonTarget) {
     buttonTarget.style.pointerEvents = "none";
 
     // CHECK ALL READY
-    const player_1 = vars.data.players[1];
-    const player_2 = vars.data.players[2];
-    if (vars.data.playersCount === 2 && (!player_1.isReady || !player_2.isReady)) return ;
+    const dataPlayers = vars.data.players;
+    if (vars.data.playersCount === 2 && (!dataPlayers[1].isReady || !dataPlayers[2].isReady)) return ;
 
     playerbox_1_readybox.style.display = "none";
     playerbox_2_readybox.style.display = "none";
@@ -174,9 +168,21 @@ playerbox_2_readybox.addEventListener("click", (e) => {
 
 // PLAYER MANAGEMENT SELECT
 
+function setPlayerSelectValue(selectValue_1, selectValue_2) {
+    const playerbox_1_selectbox_1_span = playerbox_1_selectbox_1.querySelector("span");
+    const playerbox_1_selectbox_2_span = playerbox_1_selectbox_2.querySelector("span");
+    const playerbox_2_selectbox_1_span = playerbox_2_selectbox_1.querySelector("span");
+    const playerbox_2_selectbox_2_span = playerbox_2_selectbox_2.querySelector("span");
+
+    playerbox_1_selectbox_1_span.textContent = selectValue_1;
+    playerbox_1_selectbox_2_span.textContent = selectValue_2;
+    playerbox_2_selectbox_1_span.textContent = selectValue_1;
+    playerbox_2_selectbox_2_span.textContent = selectValue_2;
+}
+
 /**
- * @param {1 | 2} playerIndex 
- * @param {"select_1" | "select_2" | "ready"} selectPosition 
+ * @param {1 | 2} playerIndex
+ * @param {0 | 1} selectPosition 
  */
 function playerSelect(playerIndex, selectPosition) {
     
@@ -195,5 +201,7 @@ playerbox_2_selectbox.addEventListener("click", (e) => {
 })
 
 // PLAYER MANAGEMENT KEYS
+
+// ...Daph
 
 export default { setup };

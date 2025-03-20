@@ -3,6 +3,42 @@ import frameGameplay from "./frame_gameplay.js";
 import frameScores from "./frame_scores.js";
 
 const vars = {
+    params: {
+        players: {
+            1: {
+                pseudo: "",
+                totalScore: 0,
+                isReady: false
+            },
+            2: {
+                pseudo: "",
+                totalScore: 0,
+                isReady: false
+            },
+            totalPlayers: 1,
+        },
+        genres: new Set(["random"]),
+        rounds: {
+            timeRounds: 15,
+            totalRounds: 3
+        },
+    },
+    ingame: {
+        tracks: [],
+        round: {
+            validTrackPosition: 0,
+            validTrack: null,
+            invalidTrack: null,
+            players: {
+                1: {
+                    score: 0
+                },
+                2: {
+                    score: 0
+                }
+            }
+        }
+    },
     data: {
         playersCount: 1,
         players: {
@@ -24,8 +60,8 @@ const vars = {
             tracks: [],
             current: {
                 titleValidate: "",
-                // 1 = Top, 2 = Botton
-                titleValidatePosition: 1,
+                // 0 = select_1, 1 = select_2
+                titleValidatePosition: 0,
                 titleInvalidate: "",
                 player: {
                     1: {
@@ -33,7 +69,7 @@ const vars = {
                     },
                     2: {
                         score: 0 
-                    },
+                    }
                 }
             },
             time: 15

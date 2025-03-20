@@ -7,13 +7,13 @@ const rangeRoundCount = document.getElementById("range_round_count");
 
 function setup() {
     // SETUP PSEUDO INPUT
-    inputPlayers.querySelector("[name='player_1']").value = vars.data.players[1].pseudo;
-    inputPlayers.querySelector("[name='player_2']").value = vars.data.players[2].pseudo;
+    inputPlayers.querySelector("[name='player_1']").value = vars.params.players[1].pseudo;
+    inputPlayers.querySelector("[name='player_2']").value = vars.params.players[2].pseudo;
 
     // SETUP GENRES SELECT
     const buttons = selectGenres.querySelectorAll("button");
     for (const button of buttons) {
-        if (vars.data.genres.has(button.dataset.genre)) {
+        if (vars.params.genres.has(button.dataset.genre)) {
             button.setAttribute("aria-pressed", "true");
         }
     }
@@ -21,15 +21,15 @@ function setup() {
 
 inputPlayers.addEventListener('input', (event) => {
     if (event.target.name === 'player_1') {
-        vars.data.players[1].pseudo = event.target.value;
+        vars.params.players[1].pseudo = event.target.value;
     } else if (event.target.name === 'player_2') {
-        vars.data.players[2].pseudo = event.target.value;
+        vars.params.players[2].pseudo = event.target.value;
     }
 
-    if (vars.data.players[1].pseudo && vars.data.players[2].pseudo) {
-        vars.data.playersCount = 2;
+    if (vars.params.players[1].pseudo && vars.params.players[2].pseudo) {
+        vars.params.players.totalPlayers = 2;
     } else {
-        vars.data.playersCount = 1;
+        vars.params.players.totalPlayers = 1;
     }
 });
 
@@ -41,25 +41,25 @@ selectGenres.addEventListener("click", (e) => {
     const dataGenreValue = buttonTarget.dataset.genre;
 
     if (ariaPressedValue === "true") {
-        if (vars.data.genres.size === 1) return;
-        vars.data.genres.delete(dataGenreValue);
+        if (vars.params.genres.size === 1) return;
+        vars.params.genres.delete(dataGenreValue);
         buttonTarget.setAttribute("aria-pressed", "false");
     }
     else if (ariaPressedValue === "false") {
         if (dataGenreValue === "random") {
             const buttonElements = selectGenres.querySelectorAll("button");
             for (const buttonElement of buttonElements) {
-                vars.data.genres.delete(buttonElement.dataset.genre);
+                vars.params.genres.delete(buttonElement.dataset.genre);
                 buttonElement.setAttribute("aria-pressed", "false");
             }
         }
-        else if (vars.data.genres.has("random")) {
+        else if (vars.params.genres.has("random")) {
             const buttonRandom = selectGenres.querySelector("button[data-genre='random']");
-            vars.data.genres.delete("random");
+            vars.params.genres.delete("random");
             buttonRandom.setAttribute("aria-pressed", "false");
         }
 
-        vars.data.genres.add(dataGenreValue);
+        vars.params.genres.add(dataGenreValue);
         buttonTarget.setAttribute("aria-pressed", "true");
     }
 })
@@ -69,15 +69,15 @@ rangeRoundTime.addEventListener("click", (e) => {
     const buttonTarget = e.target.closest("button");
     if (!buttonTarget) return;
 
-    const round = vars.data.round;
+    const rounds = vars.params.rounds;
     if (buttonTarget.name === "less") {
-        if (round.time > 10) round.time -= 5;
+        if (rounds.timeRounds > 10) rounds.timeRounds -= 5;
     }
     else if (buttonTarget.name === "more") {
-        if (round.time < 60) round.time += 5;
+        if (rounds.timeRounds < 60) rounds.timeRounds += 5;
     }
 
-    valueElement.textContent = String(round.time) + "s";
+    valueElement.textContent = String(rounds.timeRounds) + "s";
 })
 
 rangeRoundCount.addEventListener("click", (e) => {
@@ -85,15 +85,15 @@ rangeRoundCount.addEventListener("click", (e) => {
     const buttonTarget = e.target.closest("button");
     if (!buttonTarget) return;
 
-    const round = vars.data.round;
+    const rounds = vars.params.rounds;
     if (buttonTarget.name === "less") {
-        if (round.totalCount > 3) round.totalCount -= 2;
+        if (rounds.totalCount > 3) rounds.totalCount -= 2;
     }
     else if (buttonTarget.name === "more") {
-        if (round.totalCount < 7) round.totalCount += 2;
+        if (rounds.totalCount < 7) rounds.totalCount += 2;
     }
 
-    valueElement.textContent = String(round.totalCount);
+    valueElement.textContent = String(rounds.totalCount);
 })
 
 /*
