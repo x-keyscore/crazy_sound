@@ -8,10 +8,10 @@ function launchConfetti() {
     });
 }
 
-function setup() {
+function handleDisplay() {
     return (() => {
         launchConfetti();
     })
 }
 
-export default { setup };
+export default { handleDisplay };

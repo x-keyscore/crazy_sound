@@ -42,7 +42,7 @@
                 </div>
                 <div class="body">
                     <div class="section">
-                        <div class="title" id="player_title">Qui joue ?</div>
+                        <div class="title" id="player_title">Qui joue ? <span class="warning" id="player_title_warning">Il faut au moins un joueur</span></div>
                         <div class="section row" id="input_players" role="group" aria-labelledby="player-title">
                             <input class="input" name="player_1" type="text" maxlength="12" placeholder="Joueur 1">
                             <input class="input" name="player_2" type="text" maxlength="12" placeholder="Joueur 2 (facultatif)">
@@ -122,9 +122,9 @@
                     </div>
                 </div>
             </div>
-            <div class="gameplay" id="gameplay" data-players-count="1" style="display: none;">
-                <div class="playerbox" id="playerbox_2">
-                    <div class="select" id="playerbox_2_readybox" style="display: none;">
+            <div class="gameplay" id="gameplay" data-total-players="1" style="display: none;">
+                <div class="playerbox" id="playerbox_2" style="display: none;">
+                    <div class="select" id="playerbox_2_readybox">
                         <div class="pseudo" name="pseudo">[UNSET]</div>
                         <button class="button-default" name="ready">
                             <svg width="28px" height="28px" viewBox="0 0 64 64">
@@ -203,19 +203,18 @@
                         <div class="value" id="timer_value"></div>
                     </div>
                 </div>
-                <div class="playerbox" id="playerbox_1">
-                    <div class="select" id="playerbox_1_readybox" style="display: none;">
+                <div class="playerbox" id="playerbox_1" style="display: none;">
+                    <div class="select" id="playerbox_1_readybox">
                         <div class="pseudo" name="pseudo">[UNSET]</div>
                         <button class="button-default" name="ready">
                             <svg width="28px" height="28px" viewBox="0 0 64 64">
                                 <g transform="translate(0,64) scale(0.1,-0.1)">
                                     <path d="M115 591 c-11 -5 -31 -21 -45 -36 l-25 -27 0 -209 0 -209 33 -32 32
                                     -33 210 0 210 0 32 33 33 32 0 210 0 210 -33 32 -32 33 -198 2 c-108 1 -206
-                                    -2 -217 -6z m335 -110 c0 -26 -19 -31 -115 -31 -92 0 -109 -9 -103 -57 4 -36
-                                    38 -53 111 -53 51 0 62 -4 88 -29 22 -23 29 -39 29 -69 0 -77 -55 -112 -177
-                                    -112 -74 0 -93 6 -93 31 0 17 8 19 83 19 96 0 131 14 135 53 5 41 -14 57 -67
-                                    57 -106 0 -161 39 -161 112 0 30 7 46 29 69 29 28 32 29 135 29 97 0 106 -2
-                                    106 -19z"/>
+                                    -2 -217 -6z m135 -161 c0 -38 3 -70 8 -70 4 0 43 29 87 65 44 36 88 65 98 65
+                                    35 0 16 -37 -43 -85 -33 -26 -60 -52 -60 -57 0 -5 27 -45 60 -90 62 -85 74
+                                    -118 42 -118 -12 0 -43 33 -84 90 l-65 90 -21 -21 c-19 -17 -22 -31 -22 -89 0
+                                    -63 -2 -70 -20 -70 -19 0 -20 7 -20 180 0 173 1 180 20 180 18 0 20 -7 20 -70z"/>
                                 </g>
                             </svg>
                             <span>Je suis prêt</span>

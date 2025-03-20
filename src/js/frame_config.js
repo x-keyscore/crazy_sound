@@ -5,7 +5,7 @@ const selectGenres = document.getElementById("select_genres");
 const rangeRoundTime = document.getElementById("range_round_time");
 const rangeRoundCount = document.getElementById("range_round_count");
 
-function setup() {
+function handleDisplay() {
     // SETUP PSEUDO INPUT
     inputPlayers.querySelector("[name='player_1']").value = vars.params.players[1].pseudo;
     inputPlayers.querySelector("[name='player_2']").value = vars.params.players[2].pseudo;
@@ -17,6 +17,11 @@ function setup() {
             button.setAttribute("aria-pressed", "true");
         }
     }
+}
+
+function handleClosing() {
+    if (!vars.params.players[1].pseudo) return (false);
+    return (true);
 }
 
 inputPlayers.addEventListener('input', (event) => {
@@ -111,4 +116,4 @@ moreButton.addEventListener("click", function () {
     rangeValue.textContent = String(vars.data.round.totalCount);
 });*/
 
-export default { setup };
+export default { handleDisplay, handleClosing };

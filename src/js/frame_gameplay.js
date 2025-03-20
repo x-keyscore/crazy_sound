@@ -1,5 +1,6 @@
 import { vars } from "./main.js";
 
+const gameplay = document.getElementById("gameplay");
 const timerRing = document.getElementById("timer_ring");
 const timerValue = document.getElementById("timer_value");
 const playerbox_1 = document.getElementById("playerbox_1");
@@ -45,17 +46,20 @@ async function loadMP3(url) {
     }
 }
 
-function setup() {
+function handleDisplay() {
     if (!vars.tracks.length) throw new Error("Tracks is not initialized");
 
     // SETUP TIMER
     timerValue.textContent = String(vars.params.rounds.timeRounds) + "s";
 
-    // SETUP SCORES
+    // SETUP GAMEPLAY ELEMENT
+    gameplay.dataset.totalPlayers = vars.params.players.totalPlayers;
+
+    // RESET PLAYER SCORES
     vars.ingame.round.players[1].score = 0;
     vars.ingame.round.players[2].score = 0;
 
-    // SETUP PLAYER READY
+    // RESET PLAYER READY
     vars.ingame.round.players[1].isReady = false;
     vars.ingame.round.players[2].isReady = false;
 
@@ -67,15 +71,11 @@ function setup() {
 
     // SETUP PLAYERBOX READYBOX
     playerbox_1_readybox.style.removeProperty("display");
-    if (vars.params.players.totalPlayers === 2) {
-        playerbox_2_readybox.style.removeProperty("display");
-    }
+    playerbox_2_readybox.style.removeProperty("display");
 
     // SETUP PLAYERBOX PSEUDO
     setPlayerBoxPseudo(1, vars.params.players[1].pseudo);
-    if (vars.params.players.totalPlayers === 2) {
-        setPlayerBoxPseudo(2, vars.params.players[2].pseudo);
-    }
+    setPlayerBoxPseudo(2, vars.params.players[2].pseudo);
 
     // SETUP ROUND GENRES
     if (vars.params.genres.has("random")) {
@@ -245,4 +245,4 @@ playerbox_2_selectbox.addEventListener("click", (e) => {
 
 // ...Daph
 
-export default { setup };
+export default { handleDisplay };

@@ -46,16 +46,16 @@ const vars = {
             setupDisplay: null
         },
         "config": {
-            allowTransition: null,
-            setupDisplay: frameConfig.setup
+            handleClosing: frameConfig.handleClosing,
+            handleDisplay: frameConfig.handleDisplay
         },
         "gameplay": {
-            allowTransition: null,
-            setupDisplay: frameGameplay.setup
+            handleClosing: null,
+            handleDisplay: frameGameplay.handleDisplay
         },
         "scores": {
-            allowTransition: null,
-            setupDisplay: frameScores.setup
+            handleClosing: null,
+            handleDisplay: frameScores.handleDisplay
         }
     }
 }
@@ -162,9 +162,9 @@ function frameTransition(idFrom, idTo, mode, type, time) {
     const frameFrom = document.getElementById(idFrom);
     const frameTo = document.getElementById(idTo);
 
-    // EXEC FUNCTION ALLOW TRANSITION
-    if (vars.frames[idTo]?.allowTransition) {
-        if (!vars.frames[idTo].allowTransition()) return ;
+    // EXEC HANDLE CLOSING
+    if (vars.frames[idFrom]?.handleClosing) {
+        if (!vars.frames[idFrom].handleClosing()) return ;
     }
 
     // EXEC ANIMATION
@@ -177,16 +177,16 @@ function frameTransition(idFrom, idTo, mode, type, time) {
         throw new Error(`The mode '${mode}' is unknown`);
     }
 
-    // EXEC FUNCTION SETUP DISPLAY
-    let callbackSetupDisplay = null;
-    if (vars.frames[idTo]?.setupDisplay) {
-        callbackSetupDisplay = vars.frames[idTo].setupDisplay();
+    // EXEC FUNCTION HANDLE DISPLAY
+    let callbackHandleDisplay = null;
+    if (vars.frames[idTo]?.handleDisplay) {
+        callbackHandleDisplay = vars.frames[idTo].handleDisplay();
     }
 
-    // CLEAR ANIMATION AND EXEC SETUP DISPLAY CALLBACK
+    // EXEC CALLBACK ANIMATION AND CALLBACK HANDLE DISPLAY
     setTimeout(() => {
         callbackAnimation();
-        if (callbackSetupDisplay) callbackSetupDisplay();
+        if (callbackHandleDisplay) callbackHandleDisplay();
     }, time);
 }
 globalThis.frameTransition = frameTransition;
