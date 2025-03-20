@@ -1,6 +1,8 @@
 import { vars } from './main.js'
 
+
 const inputPlayers = document.getElementById("input_players");
+const inputPlayersWarning = document.getElementById("input_players_warning");
 const selectGenres = document.getElementById("select_genres");
 const rangeRoundTime = document.getElementById("range_round_time");
 const rangeRoundCount = document.getElementById("range_round_count");
@@ -20,21 +22,28 @@ function handleDisplay() {
 }
 
 function handleClosing() {
-    if (!vars.params.players[1].pseudo) return (false);
+    if (!vars.params.players[1].pseudo) {
+        inputPlayersWarning.textContent = "Champ joueur 1 requis";
+        return (false);
+    }
     return (true);
 }
 
+export default { handleDisplay, handleClosing };
+
 inputPlayers.addEventListener('input', (event) => {
+    // STORAGE PSEUDO PLAYERS
     if (event.target.name === 'player_1') {
         vars.params.players[1].pseudo = event.target.value;
     } else if (event.target.name === 'player_2') {
         vars.params.players[2].pseudo = event.target.value;
     }
 
+    // STORAGE NUMBER PLAYERS
     if (vars.params.players[1].pseudo && vars.params.players[2].pseudo) {
-        vars.params.players.totalPlayers = 2;
+        vars.params.players.number = 2;
     } else {
-        vars.params.players.totalPlayers = 1;
+        vars.params.players.number = 1;
     }
 });
 
@@ -76,13 +85,13 @@ rangeRoundTime.addEventListener("click", (e) => {
 
     const rounds = vars.params.rounds;
     if (buttonTarget.name === "less") {
-        if (rounds.timeRounds > 10) rounds.timeRounds -= 5;
+        if (rounds.duration > 10) rounds.duration -= 5;
     }
     else if (buttonTarget.name === "more") {
-        if (rounds.timeRounds < 60) rounds.timeRounds += 5;
+        if (rounds.duration < 60) rounds.duration += 5;
     }
 
-    valueElement.textContent = String(rounds.timeRounds) + "s";
+    valueElement.textContent = String(rounds.duration) + "s";
 })
 
 rangeRoundCount.addEventListener("click", (e) => {
@@ -92,13 +101,13 @@ rangeRoundCount.addEventListener("click", (e) => {
 
     const rounds = vars.params.rounds;
     if (buttonTarget.name === "less") {
-        if (rounds.totalRounds > 3) rounds.totalRounds -= 2;
+        if (rounds.number > 3) rounds.number -= 2;
     }
     else if (buttonTarget.name === "more") {
-        if (rounds.totalRounds < 7) rounds.totalRounds += 2;
+        if (rounds.number < 7) rounds.number += 2;
     }
 
-    valueElement.textContent = String(rounds.totalRounds);
+    valueElement.textContent = String(rounds.number);
 })
 
 /*
@@ -115,5 +124,3 @@ moreButton.addEventListener("click", function () {
     if (vars.data.round.totalCount < 7) vars.data.round.totalCount += 2;
     rangeValue.textContent = String(vars.data.round.totalCount);
 });*/
-
-export default { handleDisplay, handleClosing };

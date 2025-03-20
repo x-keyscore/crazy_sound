@@ -21,8 +21,8 @@
 .frame.config > .body .section > .title > .warning {
     display: inline-block;
     color: var(--text-warning);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 500;
 }
 
 .frame.config > .body .section > .title > .warning:before {

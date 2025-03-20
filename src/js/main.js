@@ -13,17 +13,19 @@ const vars = {
                 pseudo: "",
                 totalScore: 0
             },
-            totalPlayers: 1
+            number: 1
         },
         genres: new Set(["random"]),
         rounds: {
-            timeRounds: 15,
-            totalRounds: 3
+            number: 3,
+            duration: 15
         },
     },
     ingame: {
-        availableTracks: [],
-        round: {
+      
+        previousTracks: new Set(),
+        currentState: "WAIT_READY",
+        currentRound: {
             validateTrackPosition: 0,
             validateTrack: null,
             invalidateTrack: null,

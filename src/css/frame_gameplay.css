@@ -10,7 +10,7 @@
     box-sizing: border-box;
 }
 
-.gameplay[data-total-players='1'] > :nth-of-type(3) {
+.gameplay[data-players-number='1'] > :nth-of-type(3) {
     flex: 0 1 auto;
 }
 

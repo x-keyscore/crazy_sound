@@ -42,7 +42,7 @@
                 </div>
                 <div class="body">
                     <div class="section">
-                        <div class="title" id="player_title">Qui joue ? <span class="warning" id="player_title_warning">Il faut au moins un joueur</span></div>
+                        <div class="title">Qui joue ? <span class="warning" id="input_players_warning"></span></div>
                         <div class="section row" id="input_players" role="group" aria-labelledby="player-title">
                             <input class="input" name="player_1" type="text" maxlength="12" placeholder="Joueur 1">
                             <input class="input" name="player_2" type="text" maxlength="12" placeholder="Joueur 2 (facultatif)">
@@ -122,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gameplay" id="gameplay" data-total-players="1" style="display: none;">
+            <div class="gameplay" id="gameplay" data-players-number="1" style="display: none;">
                 <div class="playerbox" id="playerbox_2" style="display: none;">
                     <div class="select" id="playerbox_2_readybox">
                         <div class="pseudo" name="pseudo">[UNSET]</div>
