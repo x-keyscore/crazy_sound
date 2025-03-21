@@ -19,17 +19,13 @@ const playerbox_2_selectbox_2 = playerbox_2_selectbox.querySelector("[name='sele
 const playerbox_1_resultbox = document.getElementById("playerbox_1_resultbox");
 const playerbox_2_resultbox = document.getElementById("playerbox_2_resultbox");
 
-(async () => {
-    await fetch(vars.prefixPath + '/assets/tracks/registry.json')
+fetch(vars.prefixPath + '/assets/tracks/registry.json')
         .then(response => {
             console.log(response);
             return (response.json());
         })
         .then(data => vars.tracks = data)
         .catch(error => console.error('Unable to retrieve tracks registry :', error));
-})();
-
-
 
 function handleDisplay() {
     if (!vars.tracks.length) throw new Error("Tracks is not initialized");
