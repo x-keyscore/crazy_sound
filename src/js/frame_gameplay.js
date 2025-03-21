@@ -211,7 +211,7 @@ async function gameloop() {
         }
 
         // PLAY VALIDATE TRACK
-        const currentTrackBuffer = await loadTrack(audioContext, "../../assets/tracks/" + validateTrack.file.track);
+        const currentTrackBuffer = await loadTrack(audioContext, "/crazy_sound" + "/assets/tracks/" + validateTrack.file.track);
         const { source: currentTrackSource, gainNode: currentTrackGain } = playTrack(audioContext, currentTrackBuffer, 2);
 
         // START RING PROGRESS
