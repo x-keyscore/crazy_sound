@@ -19,7 +19,7 @@ const playerbox_2_selectbox_2 = playerbox_2_selectbox.querySelector("[name='sele
 const playerbox_1_resultbox = document.getElementById("playerbox_1_resultbox");
 const playerbox_2_resultbox = document.getElementById("playerbox_2_resultbox");
 
-fetch('../../assets/tracks/registry.json')
+fetch('./assets/tracks/registry.json')
     .then(response => {
         console.log(response);
         JSON.parse(response);
