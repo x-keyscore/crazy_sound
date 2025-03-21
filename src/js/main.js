@@ -3,6 +3,7 @@ import frameGameplay from "./frame_gameplay.js";
 import frameScores from "./frame_scores.js";
 
 const vars = {
+    prefixPath: "./crazy_sound",
     params: {
         players: {
             1: {
