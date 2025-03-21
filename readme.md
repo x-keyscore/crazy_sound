@@ -2,7 +2,7 @@
 
 **Crazy Sound** est un quiz musical à faire avec ses amis (commencer a jouer)[]
 
-### Start development
+### Start development :
 
 #### Clone repo :
 
