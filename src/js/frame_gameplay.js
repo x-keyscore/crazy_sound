@@ -22,7 +22,7 @@ const playerbox_2_resultbox = document.getElementById("playerbox_2_resultbox");
 fetch(vars.prefixPath + '/assets/tracks/registry.json')
     .then(response => {
         console.log(response);
-        JSON.parse(response);
+        return (response.json());
     })
     .then(data => vars.tracks = data)
     .catch(error => console.error('Unable to retrieve tracks registry :', error));
