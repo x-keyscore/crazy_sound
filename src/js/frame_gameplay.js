@@ -20,7 +20,10 @@ const playerbox_1_resultbox = document.getElementById("playerbox_1_resultbox");
 const playerbox_2_resultbox = document.getElementById("playerbox_2_resultbox");
 
 fetch('../../assets/tracks/registry.json')
-    .then(response => response.json())
+    .then(response => {
+        console.log(response);
+        JSON.parse(response);
+    })
     .then(data => vars.tracks = data)
     .catch(error => console.error('Unable to retrieve tracks registry :', error));
 
