@@ -21,8 +21,8 @@ function handleDisplay() {
     }
 }
 
-function handleClosing() {
-    if (!vars.params.players[1].pseudo) {
+function handleClosing(idTarget) {
+    if (idTarget === "gameplay" && !vars.params.players[1].pseudo) {
         inputPlayersWarning.textContent = "Champ joueur 1 requis";
         return (false);
     }
@@ -32,14 +32,15 @@ function handleClosing() {
 export default { handleDisplay, handleClosing };
 
 inputPlayers.addEventListener('input', (event) => {
-    // STORAGE PSEUDO PLAYERS
+    // SET PLAYERS PSEUDO 
     if (event.target.name === 'player_1') {
+        inputPlayersWarning.textContent = "";
         vars.params.players[1].pseudo = event.target.value;
     } else if (event.target.name === 'player_2') {
         vars.params.players[2].pseudo = event.target.value;
     }
 
-    // STORAGE NUMBER PLAYERS
+    // SET PLAYERS NUMBER
     if (vars.params.players[1].pseudo && vars.params.players[2].pseudo) {
         vars.params.players.number = 2;
     } else {
@@ -63,7 +64,7 @@ selectGenres.addEventListener("click", (e) => {
         if (dataGenreValue === "random") {
             const buttonElements = selectGenres.querySelectorAll("button");
             for (const buttonElement of buttonElements) {
-                vars.params.genres.delete(buttonElement.dataset.genre);
+                vars.params.genres.delete(dataGenreValue);
                 buttonElement.setAttribute("aria-pressed", "false");
             }
         }
@@ -101,10 +102,10 @@ rangeRoundCount.addEventListener("click", (e) => {
 
     const rounds = vars.params.rounds;
     if (buttonTarget.name === "less") {
-        if (rounds.number > 3) rounds.number -= 2;
+        if (rounds.number > 1) rounds.number -= 1;
     }
     else if (buttonTarget.name === "more") {
-        if (rounds.number < 7) rounds.number += 2;
+        if (rounds.number < 5) rounds.number += 1;
     }
 
     valueElement.textContent = String(rounds.number);

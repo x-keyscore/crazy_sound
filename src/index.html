@@ -172,13 +172,13 @@
                         </button>
                     </div>
                     <div class="result" id="playerbox_2_resultbox" style="display: none;">
-                        <div class="point">
+                        <div class="score" name="score">
                             [UNSET]
                         </div>
                         <div class="track">
                             <div>
                                 <div>Titre :</div>
-                                <div name="name">[UNSET]</div>
+                                <div name="title">[UNSET]</div>
                             </div>
                             <div>
                                 <div>Album :</div>
@@ -192,13 +192,13 @@
                     </div>
                 </div>
                 <div class="centerbox">
-                    <img class="blur" src="../assets/tracks/back_in_black.jpg">
-                    <img class="picture" src="../assets/tracks/back_in_black.jpg">
+                    <img class="blur" id="cover_blur" src="../assets/tracks/back_in_black.jpg">
+                    <img class="picture" id="cover_picture" src="../assets/tracks/back_in_black.jpg">
                     <div class="shadow"></div>
-                    <div class="timer">
-                        <svg class="ring" id="timer_ring" viewBox="0 0 100 100">
+                    <div class="timer" id="timer">
+                        <svg class="ring"  viewBox="0 0 100 100">
                             <circle class="background" cx="50%" cy="50%" r="47.5" stroke-width="5" fill="none" />
-                            <circle class="progress" cx="50%" cy="50%" r="47.5" stroke-width="5" fill="none" />
+                            <circle class="progress" id="timer_ring_progress" cx="50%" cy="50%" r="47.5" stroke-width="5" fill="none" />
                         </svg>
                         <div class="value" id="timer_value"></div>
                     </div>
@@ -249,13 +249,13 @@
                         </button>
                     </div>
                     <div class="result" id="playerbox_1_resultbox" style="display: none;">
-                        <div class="point">
+                        <div class="score" name="score">
                             [UNSET]
                         </div>
                         <div class="track">
                             <div>
                                 <div>Titre :</div>
-                                <div name="name">[UNSET]</div>
+                                <div name="title">[UNSET]</div>
                             </div>
                             <div>
                                 <div>Album :</div>
@@ -274,15 +274,15 @@
                     <div class="title">Resultat</div>
                 </div>
                 <div class="body">
-                    <div class="message">Et le gagnant est… <span class="bold">[UNSET]</span> 🎉</div>
+                    <div class="message" id="scores_message">[UNSET]</div>
                     <div class="player">
-                        <div class="score">
-                            <div class="point">120</div>
-                            <div class="pseudo">Paul</div>
+                        <div class="score" id="scores_winner">
+                            <div class="point" name="score">[UNSET]</div>
+                            <div class="pseudo" name="pseudo">[UNSET]</div>
                         </div>
-                        <div class="score">
-                            <div class="point">100</div>
-                            <div class="pseudo">Jaque</div>
+                        <div class="score" id="scores_losser">
+                            <div class="point" name="score">[UNSET]</div>
+                            <div class="pseudo" name="pseudo">[UNSET]</div>
                         </div>
                     </div>
                 </div>

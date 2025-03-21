@@ -6,12 +6,10 @@ const vars = {
     params: {
         players: {
             1: {
-                pseudo: "",
-                totalScore: 0
+                pseudo: ""
             },
             2: {
-                pseudo: "",
-                totalScore: 0
+                pseudo: ""
             },
             number: 1
         },
@@ -20,28 +18,42 @@ const vars = {
             number: 3,
             duration: 15
         },
+        scoreIncrease: 60,
+        scoreDecrease: -30,
     },
     ingame: {
-      
         previousTracks: new Set(),
         currentState: "WAIT_READY",
-        currentRound: {
-            validateTrackPosition: 0,
-            validateTrack: null,
-            invalidateTrack: null,
+        sessionRound: {
             players: {
                 1: {
                     isReady: false,
-                    score: 0
+                    totalScore: 0
                 },
                 2: {
                     isReady: false,
+                    totalScore: 0
+                }
+            }
+        },
+        currentRound: {
+            scoreDecrease: 0,
+            validateTrack: null,
+            validateTrackPosition: 0,
+            invalidateTrack: null,
+            players: {
+                1: {
+                    hasSelect: false,
+                    score: 0
+                },
+                2: {
+                    hasSelect: false,
                     score: 0
                 }
             }
-        }
+        },
+        
     },
-    tracks: [],
     frames: {
         "menu": {
             allowTransition: null,
@@ -59,7 +71,8 @@ const vars = {
             handleClosing: null,
             handleDisplay: frameScores.handleDisplay
         }
-    }
+    },
+    tracks: []
 }
 
 /**
@@ -166,7 +179,7 @@ function frameTransition(idFrom, idTo, mode, type, time) {
 
     // EXEC HANDLE CLOSING
     if (vars.frames[idFrom]?.handleClosing) {
-        if (!vars.frames[idFrom].handleClosing()) return ;
+        if (!vars.frames[idFrom].handleClosing(idTo)) return ;
     }
 
     // EXEC ANIMATION

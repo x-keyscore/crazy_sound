@@ -63,7 +63,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: 0.35s keyframe-timer-opacity 10s ease-in-out forwards;
 }
 
 .gameplay > .centerbox > .timer > .ring {
@@ -79,7 +78,6 @@
     stroke: var(--secondary);
     stroke-dasharray: 298.4; /* perimeter = 2 * pi * r */
     stroke-dashoffset: 0;
-    animation: keyframe-timer-rotate 10s linear forwards;
 }
 
 .gameplay > .centerbox > .timer > .value {
@@ -131,10 +129,10 @@
     gap: 24px;
 }
 
-.gameplay > .playerbox > .result > .point {
+.gameplay > .playerbox > .result > .score {
     color: var(--text);
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .gameplay > .playerbox > .result > .track {
@@ -191,21 +189,37 @@
         transform: rotateZ(360deg);
     }
 }
-/*
-@keyframes keyframe-timer-rotate {
-    from {
-        stroke-dashoffset: 0;
+
+@keyframes keyframe-timer-fade-loop {
+    5% {
+        opacity: 1;
     }
-    to {
-        stroke-dashoffset: 298.4;
+    10% {
+        opacity: 0;
     }
-}*/
-/*
-@keyframes keyframe-timer-opacity {
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes keyframe-timer-fade-simple {
     from {
         opacity: 1;
     }
     to {
         opacity: 0;
     }
-}*/
+}
+
+@keyframes keyframe-timer-ring-progress {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: 298.4;
+    }
+}
+
