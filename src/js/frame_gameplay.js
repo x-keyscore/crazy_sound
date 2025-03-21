@@ -21,10 +21,7 @@ const playerbox_2_resultbox = document.getElementById("playerbox_2_resultbox");
 
 fetch('../../assets/tracks/registry.json')
     .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        vars.tracks = data;
-    })
+    .then(data => vars.tracks = data)
     .catch(error => console.error('Unable to retrieve tracks registry :', error));
 
 function handleDisplay() {
@@ -102,7 +99,7 @@ export default { handleDisplay };
 // AUDIO MANAGEMENT TRACK
 
 async function loadTrack(audioContext, url) {
-    console.log("Load track: " + url);
+    console.log("Load track");
     const response = await fetch(url);
     const arrayBuffer = await response.arrayBuffer();
     return await audioContext.decodeAudioData(arrayBuffer);
@@ -145,10 +142,6 @@ async function gameloop() {
     const displayResultDuration = 10000;
 
     for (let i = 1; i <= vars.params.rounds.number; i++) {
-        console.log("==================================================");
-
-        console.log("Wait select");
-
         // RESET SCORE DECREASE
         currentRound.scoreDecrease = 0;
 
@@ -179,7 +172,7 @@ async function gameloop() {
 
             return (track.genres.some(genre => vars.params.genres.has(genre)));
         });
-        console.log(availableTracks)
+
         const validateTrackIndex = Math.floor(Math.random() * availableTracks.length);
         const validateTrack = availableTracks[validateTrackIndex];
 
@@ -255,8 +248,6 @@ async function gameloop() {
             setPlayerBoxResultBox(2, "view");
         }
 
-        console.log("View result");
-
         if (previousTracks.size !== vars.params.rounds.number) {
             // START TIMER FADE
             timer.style.animation = `keyframe-timer-fade-loop ${displayResultDuration}ms ease-in-out forwards`;
@@ -288,6 +279,9 @@ async function gameloop() {
             await wait(displayResultDuration / 4);
         }
     }
+
+    // SET CURRENT STATE
+    vars.ingame.currentState = "WAIT_CONFIG";
 
     frameTransition("gameplay", "scores", "fade", "back", 250);
 }
@@ -521,5 +515,29 @@ function setPlayerBoxResultBoxScoreAndTrack(playerIndex, score, track) {
 }
 
 // PLAYER MANAGEMENT KEYS
+
+window.addEventListener("keydown", (event) => {
+    if (playerKeys[event.key]) {
+        if (vars.ingame.currentState === "WAIT_READY") {
+            if (playerKeys[event.key].selectPosition === 1) {
+                playerReady(playerKeys[event.key].playerIndex);
+            }
+        }
+        else if (vars.ingame.currentState === "WAIT_SELECT") {
+            playerSelect(playerKeys[event.key].playerIndex, playerKeys[event.key].selectPosition);
+        }
+    }
+});
+
+const playerKeys = {
+    k: { playerIndex: 1, selectPosition: 1 },
+    K: { playerIndex: 1, selectPosition: 1 },
+    l: { playerIndex: 1, selectPosition: 2 },
+    L: { playerIndex: 1, selectPosition: 2 },
+    s: { playerIndex: 2, selectPosition: 1 },
+    S: { playerIndex: 2, selectPosition: 1 },
+    d: { playerIndex: 2, selectPosition: 2 },
+    D: { playerIndex: 2, selectPosition: 2 }
+};
 
 // ...Daph

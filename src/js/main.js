@@ -23,7 +23,7 @@ const vars = {
     },
     ingame: {
         previousTracks: new Set(),
-        currentState: "WAIT_READY",
+        currentState: "WAIT_CONFIG",
         sessionRound: {
             players: {
                 1: {

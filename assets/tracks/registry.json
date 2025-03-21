@@ -263,7 +263,7 @@
             "IAM"
         ],
         "genres": [
-            "hip-hop"
+            "hip-hop", "rap"
         ],
         "file": {
             "track": "je_danse_le_mia.mp3",
@@ -296,6 +296,34 @@
         "file": {
             "track": "on_verra.mp3",
             "cover": "on_verra.jpg"
+        }
+    },
+    {
+        "title": "Mwaka Moon",
+        "album": "Mwaka Moon",
+        "artist": [
+            "Damso", "Kalash"
+        ],
+        "genres": [
+            "rap"
+        ],
+        "file": {
+            "track": "mwaka_moon.mp3",
+            "cover": "mwaka_moon.jpg"
+        }
+    },
+    {
+        "title": "J'comprends pas",
+        "album": "Que la famille",
+        "artist": [
+            "PNL"
+        ],
+        "genres": [
+            "rap"
+        ],
+        "file": {
+            "track": "j_comprends_pas.mp3",
+            "cover": "j_comprends_pas.jpg"
         }
     }
 ]

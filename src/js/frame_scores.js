@@ -37,7 +37,13 @@ function handleDisplay() {
     if (vars.params.players.number === 1) {
         const totalScorePlayer_1 = vars.ingame.sessionRound.players[1].totalScore;
 
-        scores_message.innerHTML = "[à faire]"; //...daph
+        if (totalScorePlayer_1 === 0) {
+            scores_message.innerHTML = "0+0 la tête à Toto 🤭";
+        } else if (totalScorePlayer_1 > 0) {
+            scores_message.innerHTML = `Bravo <span class='bold'>${vars.params.players[1].pseudo}</span> ✨`;
+        } else if (totalScorePlayer_1 < 0) {
+            scores_message.innerHTML = "Oops... tu feras mieux la prochaine fois 🎵";
+        }
 
         if (totalScorePlayer_1 > 0) {
             setScoresPlayer("winner", "view");
@@ -61,7 +67,7 @@ function handleDisplay() {
         setScoresPlayer("winner", "view");
         setScoresPlayer("losser", "view");
 
-        scores_message.innerHTML = "Et le gagnant est… <span class='bold'>[UNSET]</span> 🎉";
+        scores_message.innerHTML = `Et le gagnant est… <span class='bold'>${vars.params.players[winnerIndex].pseudo}</span> 🎉`;
 
         scores_winner_pseudo.textContent = vars.params.players[winnerIndex].pseudo;
         scores_winner_score.textContent = vars.ingame.sessionRound.players[winnerIndex].totalScore;
@@ -73,7 +79,5 @@ function handleDisplay() {
         launchConfetti();
     })
 }
-
-
 
 export default { handleDisplay };
