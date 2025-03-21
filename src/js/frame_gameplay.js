@@ -19,7 +19,7 @@ const playerbox_2_selectbox_2 = playerbox_2_selectbox.querySelector("[name='sele
 const playerbox_1_resultbox = document.getElementById("playerbox_1_resultbox");
 const playerbox_2_resultbox = document.getElementById("playerbox_2_resultbox");
 
-fetch(vars.prefixPath + '/assets/tracks/registry.json')
+fetch("/crazy_sound" + "/assets/tracks/registry.json")
         .then(response => {
             console.log(response);
             return (response.json());
@@ -189,8 +189,8 @@ async function gameloop() {
         const invalidateTrack = similarTracks[invalidateTrackIndex];
 
         // SET COVER
-        cover_blur.src = vars.prefixPath + "/assets/tracks/" + validateTrack.file.cover;
-        cover_picture.src = vars.prefixPath + "/assets/tracks/" + validateTrack.file.cover;
+        cover_blur.src = "../../assets/tracks/" + validateTrack.file.cover;
+        cover_picture.src = "../../assets/tracks/" + validateTrack.file.cover;
 
         // SET ROUND TRACKS
         currentRound.validateTrack = validateTrack;
