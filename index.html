@@ -3,25 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
-        <link rel="stylesheet" href="./css/main.css">
-        <link rel="stylesheet" href="./css/frame.css">
-        <link rel="stylesheet" href="./css/frame_menu.css">
-        <link rel="stylesheet" href="./css/frame_config.css">
-        <link rel="stylesheet" href="./css/frame_scores.css">
-        <link rel="stylesheet" href="./css/frame_gameplay.css">
-        <script src="./js/main.js"  type="module"></script>
+        <link rel="stylesheet" href="./src/css/main.css">
+        <link rel="stylesheet" href="./src/css/frame.css">
+        <link rel="stylesheet" href="./src/css/frame_menu.css">
+        <link rel="stylesheet" href="./src/css/frame_config.css">
+        <link rel="stylesheet" href="./src/css/frame_scores.css">
+        <link rel="stylesheet" href="./src/css/frame_gameplay.css">
+        <script src="./src/js/main.js"  type="module"></script>
         <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 
         <title>Crazy Sound</title>
         <meta name="description" content="">
         <meta name="keyword" content="">
-        <link rel="icon" type="image/x-icon" href="../assets/icons/mascot.ico">
+        <link rel="icon" type="image/x-icon" href="./assets/icons/mascot.ico">
     </head>
     <body>
         <div class="container">
             <div class="frame menu" id="menu">
                 <div class="header">
-                    <img src="../../assets/icons/logo.svg" alt="Logo" class="logo">
+                    <img src="./assets/icons/logo.svg" alt="Logo" class="logo">
                 </div>
                 <div class="body">
                     <h1>Salut, l'ami 👋</h1>
@@ -193,8 +193,8 @@
                     </div>
                 </div>
                 <div class="centerbox">
-                    <img class="blur" id="cover_blur" src="../assets/tracks/back_in_black.jpg">
-                    <img class="picture" id="cover_picture" src="../assets/tracks/back_in_black.jpg">
+                    <img class="blur" id="cover_blur" src="./assets/tracks/back_in_black.jpg">
+                    <img class="picture" id="cover_picture" src="./assets/tracks/back_in_black.jpg">
                     <div class="shadow"></div>
                     <div class="timer" id="timer">
                         <svg class="ring"  viewBox="0 0 100 100">
@@ -299,7 +299,7 @@
                 </div>
             </div>
             <div class="mascot">
-                <img src="../../assets/icons/mascot.png">
+                <img src="./assets/icons/mascot.png">
             </div>
             <canvas id="confetti"></canvas>
         </div>

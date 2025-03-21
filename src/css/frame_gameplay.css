@@ -34,6 +34,7 @@
     width: 100%;
     height: 100%;
     filter: blur(10px);
+    clip-path: inset(2px 2px 2px 2px round 50%);/* Chome border bug patch */
 }
 
 .gameplay > .centerbox > .picture {
@@ -55,6 +56,7 @@
 }
 
 .gameplay > .centerbox > .timer {
+    /*background-color: var(--primary-light);*/
     position: absolute;
     top: 0;
     left: 0;
@@ -71,7 +73,7 @@
 
 .gameplay > .centerbox > .timer > .ring > .background {
     fill: var(--primary-light);
-    stroke: var(--primary);
+    stroke: var(--primary-light);
 }
 
 .gameplay > .centerbox > .timer > .ring > .progress {
