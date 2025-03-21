@@ -189,8 +189,8 @@ async function gameloop() {
         const invalidateTrack = similarTracks[invalidateTrackIndex];
 
         // SET COVER
-        cover_blur.src = "../../assets/tracks/" + validateTrack.file.cover;
-        cover_picture.src = "../../assets/tracks/" + validateTrack.file.cover;
+        cover_blur.src = "/crazy_sound" + "/assets/tracks/" + validateTrack.file.cover;
+        cover_picture.src = "/crazy_sound" + "/assets/tracks/" + validateTrack.file.cover;
 
         // SET ROUND TRACKS
         currentRound.validateTrack = validateTrack;
