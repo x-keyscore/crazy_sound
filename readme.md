@@ -1,6 +1,6 @@
 # Crazy Sound
 
-**Crazy Sound** est un quiz musical à faire avec ses amis (commencer a jouer)[]
+**Crazy Sound** est un quiz musical à faire avec ses amis. (Jouer maintenant)[]
 
 ### Start development :
 
